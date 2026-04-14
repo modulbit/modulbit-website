@@ -1,12 +1,11 @@
-import React from "react";
 import Link from "next/link";
 import Footer from "@/components/footer";
+import HeroAIAnimation from "@/components/hero-ai-animation";
 
 export default function Home() {
   return (
     <div className="bg-[#181d24] text-white selection:bg-accent/30 selection:text-white overflow-hidden bg-mesh min-h-screen">
 
-      {/* Hero Section */}
       <section className="relative pt-24 pb-32 px-6">
         <div className="mx-auto max-w-7xl relative z-10">
           <div className="flex flex-col md:flex-row items-center justify-between gap-12">
@@ -19,40 +18,20 @@ export default function Home() {
                 Open source projects designed with a mission: making AI accessible, practical, and friendly for people of all ages.
               </p>
               <div className="flex flex-wrap gap-4">
-                <Link href="https://github.com/modulbit" className="px-8 py-3 bg-accent text-[#181d24] rounded-full font-bold transition-all hover:scale-105 hover:shadow-[0_0_20px_rgba(0,255,157,0.4)] active:scale-95">
+                <Link href="/explore-projects" className="px-8 py-3 bg-accent text-[#181d24] rounded-full font-bold transition-all hover:scale-105 hover:shadow-[0_0_20px_rgba(0,255,157,0.4)] active:scale-95">
                   Explore Projects
                 </Link>
-                <Link href="https://github.com/modulbit" className="px-8 py-3 border border-white/20 rounded-full font-bold transition-all hover:bg-white/5 hover:border-accent/40 active:scale-95 text-center">
+                <Link href="/get-involved" className="px-8 py-3 border border-white/20 rounded-full font-bold transition-all hover:bg-white/5 hover:border-accent/40 active:scale-95 text-center">
                   Join Community
                 </Link>
               </div>
             </div>
 
-            {/* Visual Element replacing broken image */}
-            <div className="relative w-full md:w-[450px] aspect-square group">
-              <div className="absolute inset-0 bg-accent/10 rounded-3xl rotate-6 group-hover:rotate-12 transition-transform duration-500"></div>
-              <div className="absolute inset-0 bg-accent/20 rounded-3xl -rotate-3 group-hover:-rotate-6 transition-transform duration-500 delay-75"></div>
-              <div className="relative h-full w-full rounded-2xl bg-gradient-to-br from-white/10 to-white/5 border border-white/10 backdrop-blur-3xl overflow-hidden flex items-center justify-center">
-                <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_50%,rgba(0,255,157,0.1),transparent)] group-hover:bg-[radial-gradient(circle_at_50%_50%,rgba(0,255,157,0.2),transparent)] transition-colors duration-500"></div>
-                {/* Abstract Geometric Art */}
-                <div className="grid grid-cols-4 gap-4 p-8 w-full opacity-60 group-hover:opacity-100 transition-opacity duration-500">
-                  {[...Array(16)].map((_, i) => (
-                    <div
-                      key={i}
-                      className="aspect-square rounded-md bg-accent/10 border border-accent/20 transform hover:scale-110 transition-transform cursor-pointer"
-                      style={{ transitionDelay: `${i * 30}ms` }}
-                    />
-                  ))}
-                </div>
-              </div>
-              {/* Floating Glow */}
-              <div className="absolute -bottom-10 -right-10 w-40 h-40 bg-accent/20 blur-[80px]"></div>
-            </div>
+            <HeroAIAnimation />
           </div>
         </div>
       </section>
 
-      {/* Mission Section */}
       <section className="py-24 px-6 border-t border-white/5 bg-black/20">
         <div className="mx-auto max-w-7xl">
           <div className="flex flex-col items-center text-center max-w-4xl mx-auto">
@@ -77,7 +56,6 @@ export default function Home() {
         </div>
       </section>
 
-      {/* What We Are Building Section */}
       <section className="py-24 px-6">
         <div className="mx-auto max-w-7xl">
           <div className="mb-16">
@@ -86,7 +64,6 @@ export default function Home() {
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            {/* Card 1 */}
             <div className="group relative p-8 rounded-2xl bg-white/5 border border-white/10 hover:border-accent/30 transition-all duration-300 box-glow-hover">
               <div className="text-4xl mb-6">🤝</div>
               <h3 className="text-xl font-bold font-poppins mb-4 text-white group-hover:text-accent transition-colors">Accessibility First</h3>
@@ -95,7 +72,6 @@ export default function Home() {
               </p>
             </div>
 
-            {/* Card 2 */}
             <div className="group relative p-8 rounded-2xl bg-white/5 border border-white/10 hover:border-accent/30 transition-all duration-300 box-glow-hover">
               <div className="text-4xl mb-6">🔐</div>
               <h3 className="text-xl font-bold font-poppins mb-4 text-white group-hover:text-accent transition-colors">Open Source</h3>
@@ -104,7 +80,6 @@ export default function Home() {
               </p>
             </div>
 
-            {/* Card 3 */}
             <div className="group relative p-8 rounded-2xl bg-white/5 border border-white/10 hover:border-accent/30 transition-all duration-300 box-glow-hover">
               <div className="text-4xl mb-6">🌱</div>
               <h3 className="text-xl font-bold font-poppins mb-4 text-white group-hover:text-accent transition-colors">Community Driven</h3>
@@ -116,7 +91,6 @@ export default function Home() {
         </div>
       </section>
 
-      {/* CTA Section */}
       <section className="py-32 px-6 relative">
         <div className="absolute inset-0 bg-accent/5 pointer-events-none"></div>
         <div className="mx-auto max-w-4xl text-center relative z-10">
@@ -124,13 +98,12 @@ export default function Home() {
             Ready to make an <br />
             <span className="text-accent text-glow">impact?</span>
           </h2>
-          <Link href="https://github.com/modulbit" className="inline-block px-12 py-4 bg-accent text-[#181d24] rounded-full font-bold text-lg transition-all hover:scale-105 hover:shadow-[0_0_30px_rgba(0,255,157,0.5)] active:scale-95">
+          <Link href="/get-involved" className="inline-block px-12 py-4 bg-accent text-[#181d24] rounded-full font-bold text-lg transition-all hover:scale-105 hover:shadow-[0_0_30px_rgba(0,255,157,0.5)] active:scale-95">
             Join the Mission
           </Link>
         </div>
       </section>
 
-      {/* Footer */}
       <Footer />
     </div>
   );
