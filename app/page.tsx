@@ -1,65 +1,138 @@
-import Image from "next/image";
+import React from "react";
+import Link from "next/link";
 
 export default function Home() {
   return (
-    <div className="flex flex-col flex-1 items-center justify-center bg-zinc-50 font-sans dark:bg-black">
-      <main className="flex flex-1 w-full max-w-3xl flex-col items-center justify-between py-32 px-16 bg-white dark:bg-black sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={100}
-          height={20}
-          priority
-        />
-        <div className="flex flex-col items-center gap-6 text-center sm:items-start sm:text-left">
-          <h1 className="max-w-xs text-3xl font-semibold leading-10 tracking-tight text-black dark:text-zinc-50">
-            To get started, edit the page.tsx file.
-          </h1>
-          <p className="max-w-md text-lg leading-8 text-zinc-600 dark:text-zinc-400">
-            Looking for a starting point or more instructions? Head over to{" "}
-            <a
-              href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Templates
-            </a>{" "}
-            or the{" "}
-            <a
-              href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Learning
-            </a>{" "}
-            center.
-          </p>
+    <div className="bg-[#181d24] text-white selection:bg-accent/30 selection:text-white overflow-hidden bg-mesh min-h-screen">
+
+      {/* Hero Section */}
+      <section className="relative pt-24 pb-32 px-6">
+        <div className="mx-auto max-w-7xl relative z-10">
+          <div className="flex flex-col md:flex-row items-center justify-between gap-12">
+            <div className="max-w-2xl">
+              <h1 className="text-5xl md:text-7xl font-bold font-poppins leading-[1.1] mb-6 tracking-tight">
+                Bringing AI <br />
+                <span className="text-accent text-glow">closer to everyone</span>
+              </h1>
+              <p className="text-xl text-gray-400 font-inter mb-10 max-w-lg leading-relaxed">
+                Open source projects designed with a mission: making AI accessible, practical, and friendly for people of all ages.
+              </p>
+              <div className="flex flex-wrap gap-4">
+                <Link href="https://github.com/modulbit" className="px-8 py-3 bg-accent text-[#181d24] rounded-full font-bold transition-all hover:scale-105 hover:shadow-[0_0_20px_rgba(0,255,157,0.4)] active:scale-95">
+                  Explore Projects
+                </Link>
+                <Link href="https://github.com/modulbit" className="px-8 py-3 border border-white/20 rounded-full font-bold transition-all hover:bg-white/5 hover:border-accent/40 active:scale-95 text-center">
+                  Join Community
+                </Link>
+              </div>
+            </div>
+
+            {/* Visual Element replacing broken image */}
+            <div className="relative w-full md:w-[450px] aspect-square group">
+              <div className="absolute inset-0 bg-accent/10 rounded-3xl rotate-6 group-hover:rotate-12 transition-transform duration-500"></div>
+              <div className="absolute inset-0 bg-accent/20 rounded-3xl -rotate-3 group-hover:-rotate-6 transition-transform duration-500 delay-75"></div>
+              <div className="relative h-full w-full rounded-2xl bg-gradient-to-br from-white/10 to-white/5 border border-white/10 backdrop-blur-3xl overflow-hidden flex items-center justify-center">
+                <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_50%,rgba(0,255,157,0.1),transparent)] group-hover:bg-[radial-gradient(circle_at_50%_50%,rgba(0,255,157,0.2),transparent)] transition-colors duration-500"></div>
+                {/* Abstract Geometric Art */}
+                <div className="grid grid-cols-4 gap-4 p-8 w-full opacity-60 group-hover:opacity-100 transition-opacity duration-500">
+                  {[...Array(16)].map((_, i) => (
+                    <div
+                      key={i}
+                      className="aspect-square rounded-md bg-accent/10 border border-accent/20 transform hover:scale-110 transition-transform cursor-pointer"
+                      style={{ transitionDelay: `${i * 30}ms` }}
+                    />
+                  ))}
+                </div>
+              </div>
+              {/* Floating Glow */}
+              <div className="absolute -bottom-10 -right-10 w-40 h-40 bg-accent/20 blur-[80px]"></div>
+            </div>
+          </div>
         </div>
-        <div className="flex flex-col gap-4 text-base font-medium sm:flex-row">
-          <a
-            className="flex h-12 w-full items-center justify-center gap-2 rounded-full bg-foreground px-5 text-background transition-colors hover:bg-[#383838] dark:hover:bg-[#ccc] md:w-[158px]"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={16}
-              height={16}
-            />
-            Deploy Now
-          </a>
-          <a
-            className="flex h-12 w-full items-center justify-center rounded-full border border-solid border-black/[.08] px-5 transition-colors hover:border-transparent hover:bg-black/[.04] dark:border-white/[.145] dark:hover:bg-[#1a1a1a] md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Documentation
-          </a>
+      </section>
+
+      {/* Mission Section */}
+      <section className="py-24 px-6 border-t border-white/5 bg-black/20">
+        <div className="mx-auto max-w-7xl">
+          <div className="flex flex-col items-center text-center max-w-4xl mx-auto">
+            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-accent/10 border border-accent/20 mb-8">
+              <span className="w-2 h-2 rounded-full bg-accent animate-pulse shadow-[0_0_8px_rgba(0,255,157,1)]"></span>
+              <span className="text-xs font-bold uppercase tracking-widest text-accent">Our Mission</span>
+            </div>
+            <h2 className="text-4xl md:text-5xl font-bold font-poppins mb-8 leading-tight">
+              Real-world impact through <br />
+              <span className="text-white">open source</span>
+            </h2>
+            <div className="space-y-6 text-lg text-gray-400 font-inter leading-relaxed">
+              <p>
+                We believe AI should be accessible to everyone, regardless of age or technical background.
+              </p>
+              <p className="max-w-3xl">
+                Our focus is creating tools that help older people use AI with confidence, paired with
+                community-driven software that anyone can improve and reuse.
+              </p>
+            </div>
+          </div>
         </div>
-      </main>
+      </section>
+
+      {/* What We Are Building Section */}
+      <section className="py-24 px-6">
+        <div className="mx-auto max-w-7xl">
+          <div className="mb-16">
+            <h2 className="text-3xl md:text-4xl font-bold font-poppins mb-4">What we are building</h2>
+            <p className="text-gray-400 font-inter">Tools and resources designed with intention and care</p>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+            {/* Card 1 */}
+            <div className="group relative p-8 rounded-2xl bg-white/5 border border-white/10 hover:border-accent/30 transition-all duration-300 box-glow-hover">
+              <div className="text-4xl mb-6">🤝</div>
+              <h3 className="text-xl font-bold font-poppins mb-4 text-white group-hover:text-accent transition-colors">Accessibility First</h3>
+              <p className="text-gray-400 font-inter leading-relaxed">
+                Tools designed for older people to use AI with confidence and ease.
+              </p>
+            </div>
+
+            {/* Card 2 */}
+            <div className="group relative p-8 rounded-2xl bg-white/5 border border-white/10 hover:border-accent/30 transition-all duration-300 box-glow-hover">
+              <div className="text-4xl mb-6">🔐</div>
+              <h3 className="text-xl font-bold font-poppins mb-4 text-white group-hover:text-accent transition-colors">Open Source</h3>
+              <p className="text-gray-400 font-inter leading-relaxed">
+                Software anyone can improve, reuse, and build upon freely.
+              </p>
+            </div>
+
+            {/* Card 3 */}
+            <div className="group relative p-8 rounded-2xl bg-white/5 border border-white/10 hover:border-accent/30 transition-all duration-300 box-glow-hover">
+              <div className="text-4xl mb-6">🌱</div>
+              <h3 className="text-xl font-bold font-poppins mb-4 text-white group-hover:text-accent transition-colors">Community Driven</h3>
+              <p className="text-gray-400 font-inter leading-relaxed">
+                Growing ecosystem of projects beyond our core mission.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* CTA Section */}
+      <section className="py-32 px-6 relative">
+        <div className="absolute inset-0 bg-accent/5 pointer-events-none"></div>
+        <div className="mx-auto max-w-4xl text-center relative z-10">
+          <h2 className="text-4xl md:text-6xl font-bold font-poppins mb-12 leading-tight">
+            Ready to make an <br />
+            <span className="text-accent text-glow">impact?</span>
+          </h2>
+          <Link href="https://github.com/modulbit" className="inline-block px-12 py-4 bg-accent text-[#181d24] rounded-full font-bold text-lg transition-all hover:scale-105 hover:shadow-[0_0_30px_rgba(0,255,157,0.5)] active:scale-95">
+            Join the Mission
+          </Link>
+        </div>
+      </section>
+
+      {/* Footer (Minimalist) */}
+      <footer className="py-12 px-6 border-t border-white/5 text-center text-sm text-gray-500 font-inter">
+        <p>© {new Date().getFullYear()} ModulBit. All rights reserved.</p>
+      </footer>
     </div>
   );
 }
