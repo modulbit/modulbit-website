@@ -1,5 +1,6 @@
 import React from "react";
 import Link from "next/link";
+import Footer from "@/components/footer";
 
 export default function Home() {
   return (
@@ -129,10 +130,8 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Footer (Minimalist) */}
-      <footer className="py-12 px-6 border-t border-white/5 text-center text-sm text-gray-500 font-inter">
-        <p>© {new Date().getFullYear()} ModulBit. All rights reserved.</p>
-      </footer>
+      {/* Footer */}
+      <Footer />
     </div>
   );
 }
