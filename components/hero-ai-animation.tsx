@@ -6,7 +6,7 @@ const HeroAIAnimation = () => {
   const messages = useMemo(() => [
     "Hello! How can I help you today?",
     "It's nice to meet you!",
-    "ModulBit is making AI accessible for everyone.",
+    "modulBit is making AI accessible for everyone.",
     "Bridging the gap between generations with open source.",
     "Building tools that empower seniors to use AI.",
     "Technology should be for everyone.",
