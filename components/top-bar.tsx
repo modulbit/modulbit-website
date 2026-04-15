@@ -10,12 +10,18 @@ const TopBar = () => {
           className="group flex items-center gap-3 transition-transform hover:scale-[1.02] active:scale-95"
         >
           <span className="text-xl font-bold tracking-tight text-white font-poppins">
-            Modul<span className="text-[#00ff9d]">Bit</span>
+            modul<span className="text-[#00ff9d]">Bit</span>
           </span>
         </Link>
 
         {/* Right side: Button */}
         <div className="flex items-center gap-6">
+          <Link 
+            href="/about-us" 
+            className="text-sm font-medium text-gray-400 transition-colors hover:text-accent"
+          >
+            About Us
+          </Link>
           <Link 
             href="/explore-projects" 
             className="text-sm font-medium text-gray-400 transition-colors hover:text-accent"
