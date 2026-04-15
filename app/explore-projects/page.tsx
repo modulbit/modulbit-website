@@ -27,8 +27,8 @@ export default function ExploreProjects() {
             {/* Background Glow */}
             <div className="absolute inset-0 bg-accent/5 opacity-50 group-hover:opacity-100 transition-opacity duration-500"></div>
 
-            <div className="relative z-10 bg-[#1a2028] rounded-[calc(1.5rem-1px)] p-12 md:p-16 flex flex-col items-center text-center">
-              <div className="absolute top-8 right-8 px-4 py-1.5 rounded-full bg-accent/10 border border-accent/30">
+            <div className="relative z-10 bg-[#1a2028] rounded-[calc(1.5rem-1px)] p-8 md:p-16 flex flex-col items-center text-center">
+              <div className="md:absolute md:top-8 md:right-8 px-4 py-1.5 rounded-full bg-accent/10 border border-accent/30 mb-8 md:mb-0">
                 <span className="text-xs font-bold uppercase tracking-widest text-accent animate-pulse">Coming Soon</span>
               </div>
 
