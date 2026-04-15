@@ -5,9 +5,12 @@ import { useState, useEffect, useMemo } from "react";
 const HeroAIAnimation = () => {
   const messages = useMemo(() => [
     "Hello! How can I help you today?",
+    "It's nice to meet you!",
     "ModulBit is making AI accessible for everyone.",
     "Bridging the gap between generations with open source.",
     "Building tools that empower seniors to use AI.",
+    "Technology should be for everyone.",
+    "The AI your parents will fall in love with!",
     "Join our mission to democratize technology."
   ], []);
 
@@ -19,15 +22,15 @@ const HeroAIAnimation = () => {
     setCompletedTyping(false);
     let i = 0;
     const stringResponse = messages[currentMessageIndex];
-    
+
     const intervalId = setInterval(() => {
       setDisplayResponse(stringResponse.slice(0, i));
       i++;
-      
+
       if (i > stringResponse.length) {
         clearInterval(intervalId);
         setCompletedTyping(true);
-        
+
         // Wait for a bit then move to next message
         setTimeout(() => {
           setCurrentMessageIndex((prev) => (prev + 1) % messages.length);
@@ -47,7 +50,7 @@ const HeroAIAnimation = () => {
       {/* Decorative background glows */}
       <div className="absolute inset-0 bg-accent/10 rounded-3xl rotate-3 group-hover:rotate-6 transition-transform duration-700"></div>
       <div className="absolute inset-0 bg-accent/5 rounded-3xl -rotate-2 group-hover:-rotate-4 transition-transform duration-700 delay-100"></div>
-      
+
       {/* Main Terminal Window */}
       <div className="relative h-full w-full rounded-2xl bg-[#0f141a]/90 border border-white/10 backdrop-blur-xl overflow-hidden flex flex-col shadow-2xl">
         {/* Terminal Header */}
@@ -58,7 +61,7 @@ const HeroAIAnimation = () => {
             <div className="w-3 h-3 rounded-full bg-[#27c93f]"></div>
           </div>
           <div className="flex-1 text-center">
-            <span className="text-[10px] uppercase tracking-[0.2em] text-gray-500 font-bold font-mono">ModulBit AI Terminal</span>
+            <span className="text-[10px] uppercase tracking-[0.2em] text-gray-500 font-bold font-mono">modulBit AI Terminal</span>
           </div>
         </div>
 
@@ -74,7 +77,7 @@ const HeroAIAnimation = () => {
               <span className="text-accent font-bold">READY</span>
             </div>
           </div>
-          
+
           <div className="mt-6 flex gap-3">
             <span className="text-accent shrink-0 font-bold">❯</span>
             <div className="text-white min-h-[4em]">
@@ -94,7 +97,7 @@ const HeroAIAnimation = () => {
           <span>AI-Core v1.0.4</span>
         </div>
       </div>
-      
+
       {/* Floating Glow */}
       <div className="absolute -bottom-10 -right-10 w-40 h-40 bg-accent/20 blur-[80px]"></div>
     </div>
