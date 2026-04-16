@@ -17,6 +17,12 @@ export default function ExploreProjects() {
           <p className="text-xl text-gray-400 font-inter mb-10 max-w-2xl mx-auto leading-relaxed">
             Discover the tools and platforms we're building to bridge the gap between human intuition and artificial intelligence.
           </p>
+          <Link
+            href="/roadmap"
+            className="inline-block px-8 py-3 border border-accent/40 text-accent rounded-full font-bold hover:bg-accent hover:text-[#181d24] transition-all active:scale-95"
+          >
+            View Roadmap
+          </Link>
         </div>
       </section>
 

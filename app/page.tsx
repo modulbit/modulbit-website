@@ -61,6 +61,9 @@ export default function Home() {
           <div className="mb-16">
             <h2 className="text-3xl md:text-4xl font-bold font-poppins mb-4">What we are building</h2>
             <p className="text-gray-400 font-inter">Tools and resources designed with intention and care</p>
+            <Link href="/roadmap" className="text-accent hover:text-accent/80 transition-colors">
+              View Roadmap
+            </Link>
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
