@@ -28,7 +28,7 @@ export default function AboutUs() {
 
             <div className="relative z-10 text-center">
               <p className="text-xl md:text-2xl font-inter leading-relaxed text-gray-200">
-                <span className="text-accent text-glow font-bold">AI shouldn’t have an age limit.</span> While most startups focus solely on the younger generation, <span className="text-accent text-glow font-bold">modulBit</span> was founded by two Czech students to ensure the technical revolution includes everyone. We are dedicated to making advanced AI intuitive and accessible, regardless of your digital background.
+                <span className="text-accent text-glow font-bold">Modern technologies shouldn’t have an age limit.</span> While most startups focus solely on the younger generation, <span className="text-accent text-glow font-bold">modulBit</span> was founded by two Czech students to ensure the technical revolution includes everyone. We are dedicated to making advanced AI intuitive and accessible, regardless of your digital background.
               </p>
             </div>
           </div>
@@ -46,7 +46,7 @@ export default function AboutUs() {
                 Have questions, suggestions, or just want to say hi? We'd love to hear from you.
               </p>
               <Link
-                href="mailto:hello@modulbit.com"
+                href="mailto:hello@modulbit.eu"
                 className="inline-flex items-center gap-3 text-2xl font-bold text-accent hover:text-white transition-colors group"
               >
                 <span>✉</span>
