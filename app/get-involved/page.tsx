@@ -15,7 +15,7 @@ export default function GetInvolved() {
             Get <span className="text-accent text-glow">Involved</span>
           </h1>
           <p className="text-xl text-gray-400 font-inter mb-10 max-w-2xl mx-auto leading-relaxed">
-            There are many ways to support our mission of making AI accessible and practical for everyone. Whether you're a developer, designer, or enthusiast, your contribution matters.
+            There are many ways to support our mission of making modern technologies accessible and practical for everyone. Whether you're a developer, designer, or enthusiast, your contribution matters.
           </p>
         </div>
       </section>
@@ -73,7 +73,7 @@ export default function GetInvolved() {
           <p className="text-xl text-gray-400 font-inter mb-12 max-w-lg mx-auto leading-relaxed">
             Send us a message and we'll help you find the best way to contribute based on your skills and interests.
           </p>
-          <Link href="mailto:hello@modulbit.com" className="inline-block px-12 py-4 bg-accent text-[#181d24] rounded-full font-bold text-lg transition-all hover:scale-105 hover:shadow-[0_0_30px_rgba(0,255,157,0.5)] active:scale-95">
+          <Link href="mailto:hello@modulbit.eu" className="inline-block px-12 py-4 bg-accent text-[#181d24] rounded-full font-bold text-lg transition-all hover:scale-105 hover:shadow-[0_0_30px_rgba(0,255,157,0.5)] active:scale-95">
             Contact Us
           </Link>
         </div>

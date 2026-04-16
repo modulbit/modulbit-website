@@ -38,7 +38,7 @@ export default function ExploreProjects() {
 
               <h2 className="text-4xl md:text-5xl font-bold font-poppins mb-6">Flagship Project</h2>
               <p className="text-xl text-gray-400 font-inter mb-10 max-w-2xl leading-relaxed">
-                Our most ambitious initiative yet, designed to revolutionize how AI accessibility is handled for all generations. A unified platform that simplifies complex interactions into intuitive experiences.
+                Our most ambitious initiative yet, designed to revolutionize how modern technology accessibility is handled for all generations. A unified platform that simplifies complex interactions into intuitive experiences.
               </p>
 
               <div className="flex flex-wrap justify-center gap-4">
@@ -91,7 +91,7 @@ export default function ExploreProjects() {
               </div>
               <h4 className="text-xl font-bold font-poppins mb-3 text-white group-hover:text-accent transition-colors">Design Kit</h4>
               <p className="text-gray-400 font-inter leading-relaxed mb-6">
-                UI/UX standards for building senior-friendly AI interfaces.
+                UI/UX standards for building senior-friendly software and tools.
               </p>
               <div className="text-gray-500 text-sm font-medium">Coming Soon</div>
             </div>
@@ -105,7 +105,7 @@ export default function ExploreProjects() {
         <div className="mx-auto max-w-4xl text-center relative z-10">
           <h2 className="text-3xl font-bold font-poppins mb-8">Have an idea for a project?</h2>
           <p className="text-lg text-gray-400 font-inter mb-10 max-w-lg mx-auto">
-            We're always looking for new ways to make AI more helpful and accessible. Let's collaborate.
+            We're always looking for new ways to make modern technologies more helpful and accessible. Let's collaborate.
           </p>
           <Link href="/get-involved" className="inline-block px-10 py-3.5 border border-accent/40 text-accent rounded-full font-bold hover:bg-accent hover:text-[#181d24] transition-all active:scale-95">
             Suggest a Project
