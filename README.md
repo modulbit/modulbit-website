@@ -18,6 +18,16 @@ Open [http://localhost:3000](http://localhost:3000) with your browser to see the
 
 You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
 
+## Bug report form setup
+
+The `/report-bug` page submits reports to `modulbit/tickets` by creating GitHub issues through the API route `POST /api/bug-report`.
+
+To enable issue creation, set this environment variable on the server:
+
+```bash
+GITHUB_TICKETS_TOKEN=your_github_token_with_repo_issue_access
+```
+
 This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
 
 ## Learn More
