@@ -1,5 +1,6 @@
 import Footer from "@/components/footer";
 import BugReportForm from "@/components/bug-report-form";
+import { TICKETS_REPOSITORY } from "@/lib/tickets";
 
 export default function ReportBugPage() {
   return (
@@ -17,7 +18,7 @@ export default function ReportBugPage() {
           </h1>
           <p className="text-lg text-gray-400 font-inter mb-10 leading-relaxed">
             Našel/a jsi problém související s modulBitem? Po odeslání formuláře se automaticky
-            vytvoří issue v repozitáři <span className="text-white">modulbit/tickets</span>.
+            vytvoří issue v repozitáři <span className="text-white">{TICKETS_REPOSITORY}</span>.
           </p>
         </div>
       </section>

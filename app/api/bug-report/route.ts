@@ -1,7 +1,6 @@
 import { NextResponse } from "next/server";
+import { TICKETS_OWNER, TICKETS_REPO } from "@/lib/tickets";
 
-const TICKETS_OWNER = "modulbit";
-const TICKETS_REPO = "tickets";
 const MAX_TITLE_LENGTH = 120;
 const MAX_DESCRIPTION_LENGTH = 4000;
 const MAX_EMAIL_LENGTH = 200;
@@ -49,11 +48,11 @@ export async function POST(request: Request) {
     return NextResponse.json({ message: "Název i popis chyby jsou povinné." }, { status: 400 });
   }
 
-  const createdAt = new Date().toISOString();
+  const reportTimestamp = new Date().toISOString();
   const issueBody = [
-    "## Bug report z webu modulbit-website",
+    "## Bug report pro modulbit",
     "",
-    `**Nahlášeno:** ${createdAt}`,
+    `**Nahlášeno:** ${reportTimestamp}`,
     email ? `**Kontakt:** ${email}` : "**Kontakt:** neuveden",
     pageUrl ? `**URL stránky:** ${pageUrl}` : "**URL stránky:** neuvedena",
     "",
@@ -61,22 +60,31 @@ export async function POST(request: Request) {
     description,
   ].join("\n");
 
-  const githubResponse = await fetch(
-    `https://api.github.com/repos/${TICKETS_OWNER}/${TICKETS_REPO}/issues`,
-    {
-      method: "POST",
-      headers: {
-        Accept: "application/vnd.github+json",
-        Authorization: `Bearer ${githubToken}`,
-        "X-GitHub-Api-Version": "2022-11-28",
-        "Content-Type": "application/json",
+  let githubResponse: Response;
+
+  try {
+    githubResponse = await fetch(
+      `https://api.github.com/repos/${TICKETS_OWNER}/${TICKETS_REPO}/issues`,
+      {
+        method: "POST",
+        headers: {
+          Accept: "application/vnd.github+json",
+          Authorization: `Bearer ${githubToken}`,
+          "X-GitHub-Api-Version": "2022-11-28",
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          title: `[Bug report] ${title}`,
+          body: issueBody,
+        }),
       },
-      body: JSON.stringify({
-        title: `[Bug report] ${title}`,
-        body: issueBody,
-      }),
-    },
-  );
+    );
+  } catch {
+    return NextResponse.json(
+      { message: "Nelze se připojit k GitHub API. Zkus to prosím za chvíli." },
+      { status: 502 },
+    );
+  }
 
   if (!githubResponse.ok) {
     return NextResponse.json(
@@ -85,10 +93,19 @@ export async function POST(request: Request) {
     );
   }
 
-  const issueData = (await githubResponse.json()) as { html_url?: string; number?: number };
+  let createdIssue: { html_url?: string; number?: number };
+
+  try {
+    createdIssue = (await githubResponse.json()) as { html_url?: string; number?: number };
+  } catch {
+    return NextResponse.json(
+      { message: "Ticket byl zpracován, ale nepodařilo se ověřit odpověď z GitHubu." },
+      { status: 502 },
+    );
+  }
 
   return NextResponse.json({
-    issueUrl: issueData.html_url ?? null,
-    issueNumber: issueData.number ?? null,
+    issueUrl: createdIssue.html_url ?? null,
+    issueNumber: createdIssue.number ?? null,
   });
 }

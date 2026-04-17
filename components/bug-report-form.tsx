@@ -3,6 +3,7 @@
 import { FormEvent, useState } from "react";
 
 type SubmitState = "idle" | "success" | "error";
+const DEFAULT_ERROR_MESSAGE = "Nepodařilo se odeslat report. Zkus to prosím znovu.";
 
 export default function BugReportForm() {
   const [isSubmitting, setIsSubmitting] = useState(false);
@@ -32,10 +33,16 @@ export default function BugReportForm() {
         body: JSON.stringify(payload),
       });
 
-      const data = (await response.json()) as { message?: string; issueUrl?: string };
+      let data: { message?: string; issueUrl?: string } = {};
+
+      try {
+        data = (await response.json()) as { message?: string; issueUrl?: string };
+      } catch {
+        data = {};
+      }
 
       if (!response.ok) {
-        throw new Error(data.message ?? "Nepodařilo se odeslat report.");
+        throw new Error(data.message ?? DEFAULT_ERROR_MESSAGE);
       }
 
       setSubmitState("success");
@@ -48,7 +55,7 @@ export default function BugReportForm() {
     } catch (error) {
       setSubmitState("error");
       setMessage(
-        error instanceof Error ? error.message : "Report se nepodařilo odeslat. Zkus to prosím znovu.",
+        error instanceof Error ? error.message : DEFAULT_ERROR_MESSAGE,
       );
     } finally {
       setIsSubmitting(false);
