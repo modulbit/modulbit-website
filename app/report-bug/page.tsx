@@ -14,11 +14,11 @@ export default function ReportBugPage() {
             </span>
           </div>
           <h1 className="text-4xl md:text-6xl font-bold font-poppins leading-tight mb-6">
-            Nahlášení chyby
+            Report bugs
           </h1>
           <p className="text-lg text-gray-400 font-inter mb-10 leading-relaxed">
-            Našel/a jsi problém související s modulBitem? Po odeslání formuláře se automaticky
-            vytvoří issue v repozitáři <span className="text-white">{TICKETS_REPOSITORY}</span>.
+            Did you find a bug? Contact us about it! 
+             <span className="text-white">{TICKETS_REPOSITORY}</span>.
           </p>
         </div>
       </section>

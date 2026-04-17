@@ -26,7 +26,7 @@ export async function POST(request: Request) {
 
   if (!githubToken) {
     return NextResponse.json(
-      { message: "Chybí serverová konfigurace pro vytváření ticketů." },
+      { message: "Server configuration missing." },
       { status: 503 },
     );
   }
@@ -36,7 +36,7 @@ export async function POST(request: Request) {
   try {
     body = (await request.json()) as BugReportPayload;
   } catch {
-    return NextResponse.json({ message: "Neplatný formát požadavku." }, { status: 400 });
+    return NextResponse.json({ message: "Incorrect format." }, { status: 400 });
   }
 
   const title = toTrimmedString(body.title, MAX_TITLE_LENGTH);
@@ -45,19 +45,22 @@ export async function POST(request: Request) {
   const pageUrl = toTrimmedString(body.pageUrl, MAX_PAGE_URL_LENGTH);
 
   if (!title || !description) {
-    return NextResponse.json({ message: "Název i popis chyby jsou povinné." }, { status: 400 });
+    return NextResponse.json({ message: "Name and description are required." }, { status: 400 });
   }
 
   const reportTimestamp = new Date().toISOString();
   const issueBody = [
     "## Bug report pro modulbit",
     "",
-    `**Nahlášeno:** ${reportTimestamp}`,
-    email ? `**Kontakt:** ${email}` : "**Kontakt:** neuveden",
-    pageUrl ? `**URL stránky:** ${pageUrl}` : "**URL stránky:** neuvedena",
+    `**Reported:** ${reportTimestamp}`,
+    email ? `**Contact:** ${email}` : "**Contact:** empty",
+    pageUrl ? `**Website URL:** ${pageUrl}` : "**Website URL:** empty",
     "",
-    "### Popis",
+    "### Description",
     description,
+    "",
+    "---",
+    `<!-- CONTACT_EMAIL: ${email || "none"} -->`,
   ].join("\n");
 
   let githubResponse: Response;
@@ -81,14 +84,14 @@ export async function POST(request: Request) {
     );
   } catch {
     return NextResponse.json(
-      { message: "Nelze se připojit k GitHub API. Zkus to prosím za chvíli." },
+      { message: "Connect to GitHub API failed. Please try again later." },
       { status: 502 },
     );
   }
 
   if (!githubResponse.ok) {
     return NextResponse.json(
-      { message: "Ticket se nepodařilo vytvořit. Zkus to prosím znovu později." },
+      { message: "Ticket creation failed. Please try again later." },
       { status: 502 },
     );
   }
@@ -99,7 +102,7 @@ export async function POST(request: Request) {
     createdIssue = (await githubResponse.json()) as { html_url?: string; number?: number };
   } catch {
     return NextResponse.json(
-      { message: "Ticket byl zpracován, ale nepodařilo se ověřit odpověď z GitHubu." },
+      { message: "Ticket has been processed, but failed to verify the answer from GitHub." },
       { status: 502 },
     );
   }

@@ -48,10 +48,10 @@ export default function BugReportForm() {
       setSubmitState("success");
       setMessage(
         data.issueUrl
-          ? `Díky, report byl vytvořen: ${data.issueUrl}`
-          : "Díky, report byl úspěšně odeslán.",
+          ? `Thanks, report was successfuly sent: ${data.issueUrl}`
+          : "Thanks, report was successfuly sent.",
       );
-      event.currentTarget.reset();
+      event.currentTarget?.reset();
     } catch (error) {
       setSubmitState("error");
       setMessage(
@@ -69,7 +69,7 @@ export default function BugReportForm() {
     >
       <div className="space-y-2">
         <label htmlFor="title" className="text-sm font-semibold text-white">
-          Název chyby *
+          Bug title *
         </label>
         <input
           id="title"
@@ -77,13 +77,13 @@ export default function BugReportForm() {
           required
           maxLength={120}
           className="w-full rounded-xl border border-white/15 bg-black/20 px-4 py-3 text-white outline-none focus:border-accent"
-          placeholder="Např. Tlačítko nefunguje na stránce roadmap"
+          placeholder="Exapmle: Button on the main website doesn't work"
         />
       </div>
 
       <div className="space-y-2">
         <label htmlFor="description" className="text-sm font-semibold text-white">
-          Popis chyby *
+          Bug description *
         </label>
         <textarea
           id="description"
@@ -92,14 +92,14 @@ export default function BugReportForm() {
           maxLength={4000}
           rows={6}
           className="w-full rounded-xl border border-white/15 bg-black/20 px-4 py-3 text-white outline-none focus:border-accent"
-          placeholder="Co se stalo, jak to reprodukovat, jaký byl očekávaný výsledek..."
+          placeholder="What happened, What was the expecting output..."
         />
       </div>
 
       <div className="grid gap-6 md:grid-cols-2">
         <div className="space-y-2">
           <label htmlFor="email" className="text-sm font-semibold text-white">
-            Kontakt (volitelné)
+            Contact (optional)
           </label>
           <input
             id="email"
@@ -107,13 +107,13 @@ export default function BugReportForm() {
             type="email"
             maxLength={200}
             className="w-full rounded-xl border border-white/15 bg-black/20 px-4 py-3 text-white outline-none focus:border-accent"
-            placeholder="tvoje@email.cz"
+            placeholder="your@email.com"
           />
         </div>
 
         <div className="space-y-2">
           <label htmlFor="pageUrl" className="text-sm font-semibold text-white">
-            URL stránky (volitelné)
+            Website URL (optional)
           </label>
           <input
             id="pageUrl"
@@ -131,7 +131,7 @@ export default function BugReportForm() {
         disabled={isSubmitting}
         className="inline-flex items-center justify-center rounded-full bg-accent px-8 py-3 font-bold text-[#181d24] transition-all hover:scale-105 active:scale-95 disabled:opacity-60 disabled:hover:scale-100"
       >
-        {isSubmitting ? "Odesílám..." : "Nahlásit chybu"}
+        {isSubmitting ? "Sending..." : "report a bug"}
       </button>
 
       {message ? (
