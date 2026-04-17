@@ -17,8 +17,7 @@ export default function ReportBugPage() {
             Report bugs
           </h1>
           <p className="text-lg text-gray-400 font-inter mb-10 leading-relaxed">
-            Did you find a bug? Contact us about it! 
-             <span className="text-white">{TICKETS_REPOSITORY}</span>.
+            Did you find a bug? Contact us about it!
           </p>
         </div>
       </section>
@@ -29,7 +28,19 @@ export default function ReportBugPage() {
         </div>
       </section>
 
+      <p className="text-center text-sm text-gray-500 mb-12">
+        For critical and security issues, please contact us via an email at{" "}
+        <a
+          href="mailto:admin@modulbit.com"
+          className="text-accent hover:underline"
+        >
+          admin@modulbit.com
+        </a>
+        .
+      </p>
+
       <Footer />
     </div>
   );
 }
+

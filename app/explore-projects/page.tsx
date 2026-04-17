@@ -42,7 +42,7 @@ export default function ExploreProjects() {
                 🚀
               </div>
 
-              <h2 className="text-4xl md:text-5xl font-bold font-poppins mb-6">Flagship Project</h2>
+              <h2 className="text-4xl md:text-5xl font-bold font-poppins mb-6">**Project name**</h2>
               <p className="text-xl text-gray-400 font-inter mb-10 max-w-2xl leading-relaxed">
                 Our most ambitious initiative yet, designed to revolutionize how modern technology accessibility is handled for all generations. A unified platform that simplifies complex interactions into intuitive experiences.
               </p>
@@ -52,6 +52,13 @@ export default function ExploreProjects() {
                 <span className="px-4 py-1.5 rounded-lg bg-white/5 border border-white/10 text-sm font-medium text-gray-300">Open Source</span>
                 <span className="px-4 py-1.5 rounded-lg bg-white/5 border border-white/10 text-sm font-medium text-gray-300">AI/ML</span>
               </div>
+
+              <br />
+
+              <a href="learn-more" className="inline-block px-8 py-3 border border-accent/40 text-accent rounded-full font-bold hover:bg-accent hover:text-[#181d24] transition-all active:scale-95">
+                Learn More
+              </a>
+
             </div>
           </div>
         </div>
@@ -69,25 +76,25 @@ export default function ExploreProjects() {
             <div className="group relative p-8 rounded-2xl bg-white/5 border border-white/10 hover:border-accent/30 transition-all duration-300 overflow-hidden box-glow-hover">
               <div className="absolute top-4 right-4 text-xs font-mono text-gray-600">ID: MB-002</div>
               <div className="w-12 h-12 mb-6 rounded-xl bg-white/5 border border-white/10 flex items-center justify-center text-2xl group-hover:scale-110 transition-transform">
-                🛠️
+                🛒
               </div>
-              <h4 className="text-xl font-bold font-poppins mb-3 text-white group-hover:text-accent transition-colors">Project Lorem</h4>
+              <h4 className="text-xl font-bold font-poppins mb-3 text-white group-hover:text-accent transition-colors">Smart shopping app</h4>
               <p className="text-gray-400 font-inter leading-relaxed mb-6">
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                A mobile app that helps users find the best deals and discounts for their shopping needs.
               </p>
-              <div className="text-gray-500 text-sm font-medium">Placeholder phase</div>
+              <div className="text-gray-500 text-sm font-medium">Coming soon</div>
             </div>
-
+            
             <div className="group relative p-8 rounded-2xl bg-white/5 border border-white/10 hover:border-accent/30 transition-all duration-300 overflow-hidden box-glow-hover">
               <div className="absolute top-4 right-4 text-xs font-mono text-gray-600">ID: MB-003</div>
               <div className="w-12 h-12 mb-6 rounded-xl bg-white/5 border border-white/10 flex items-center justify-center text-2xl group-hover:scale-110 transition-transform">
                 📡
               </div>
-              <h4 className="text-xl font-bold font-poppins mb-3 text-white group-hover:text-accent transition-colors">Project Ipsum</h4>
+              <h4 className="text-xl font-bold font-poppins mb-3 text-white group-hover:text-accent transition-colors">Family Dashboard</h4>
               <p className="text-gray-400 font-inter leading-relaxed mb-6">
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                A web-based dashboard that provides an overview of family activities, schedules, and important information.
               </p>
-              <div className="text-gray-500 text-sm font-medium">Placeholder phase</div>
+              <div className="text-gray-500 text-sm font-medium">Coming soon</div>
             </div>
 
             <div className="group relative p-8 rounded-2xl bg-white/5 border border-white/10 hover:border-accent/30 transition-all duration-300 overflow-hidden box-glow-hover">

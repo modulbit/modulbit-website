@@ -11,11 +11,11 @@ export default function Home() {
           <div className="flex flex-col md:flex-row items-center justify-between gap-12">
             <div className="max-w-2xl">
               <h1 className="text-5xl md:text-7xl font-bold font-poppins leading-[1.1] mb-6 tracking-tight">
-                Bringing AI <br />
+                Bringing Modern Technologies <br />
                 <span className="text-accent text-glow">closer to everyone</span>
               </h1>
               <p className="text-xl text-gray-400 font-inter mb-10 max-w-lg leading-relaxed">
-                Open source projects designed with a mission: making AI accessible, practical, and friendly for people of all ages.
+                Open source projects designed with a mission: making modern technologies accessible, practical, and friendly for people of all ages.
               </p>
               <div className="flex flex-wrap gap-4">
                 <Link href="/explore-projects" className="px-8 py-3 bg-accent text-[#181d24] rounded-full font-bold transition-all hover:scale-105 hover:shadow-[0_0_20px_rgba(0,255,157,0.4)] active:scale-95">
@@ -45,10 +45,10 @@ export default function Home() {
             </h2>
             <div className="space-y-6 text-lg text-gray-400 font-inter leading-relaxed">
               <p>
-                We believe AI should be accessible to everyone, regardless of age or technical background.
+                We believe modern technologies should be accessible to everyone, regardless of age or technical background.
               </p>
               <p className="max-w-3xl">
-                Our focus is creating tools that help older people use AI with confidence, paired with
+                Our focus is creating tools that help older people use modern technologies with confidence, paired with
                 community-driven software that anyone can improve and reuse.
               </p>
             </div>
