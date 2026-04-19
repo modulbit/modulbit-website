@@ -50,7 +50,7 @@ export default function AboutUs() {
                 className="inline-flex items-center gap-3 text-2xl font-bold text-accent hover:text-white transition-colors group"
               >
                 <span>✉</span>
-                hello@modulbit.com
+                hello@modulbit.eu
               </Link>
             </div>
 
