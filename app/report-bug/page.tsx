@@ -31,7 +31,7 @@ export default function ReportBugPage() {
       <p className="text-center text-sm text-gray-500 mb-12">
         For critical and security issues, please contact us via an email at{" "}
         <a
-          href="mailto:admin@modulbit.com"
+          href="mailto:admin@modulbit.eu"
           className="text-accent hover:underline"
         >
           admin@modulbit.com

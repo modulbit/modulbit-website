@@ -15,7 +15,7 @@ export default function ExploreProjects() {
             Explore <span className="text-accent text-glow">Projects</span>
           </h1>
           <p className="text-xl text-gray-400 font-inter mb-10 max-w-2xl mx-auto leading-relaxed">
-            Discover the tools and platforms we're building to bridge the gap between human intuition and artificial intelligence.
+            Discover the tools and platforms we&apos;re building to bridge the gap between human intuition and artificial intelligence.
           </p>
           <Link
             href="/roadmap"
@@ -84,7 +84,7 @@ export default function ExploreProjects() {
               </p>
               <div className="text-gray-500 text-sm font-medium">Coming soon</div>
             </div>
-            
+
             <div className="group relative p-8 rounded-2xl bg-white/5 border border-white/10 hover:border-accent/30 transition-all duration-300 overflow-hidden box-glow-hover">
               <div className="absolute top-4 right-4 text-xs font-mono text-gray-600">ID: MB-003</div>
               <div className="w-12 h-12 mb-6 rounded-xl bg-white/5 border border-white/10 flex items-center justify-center text-2xl group-hover:scale-110 transition-transform">
@@ -118,7 +118,7 @@ export default function ExploreProjects() {
         <div className="mx-auto max-w-4xl text-center relative z-10">
           <h2 className="text-3xl font-bold font-poppins mb-8">Have an idea for a project?</h2>
           <p className="text-lg text-gray-400 font-inter mb-10 max-w-lg mx-auto">
-            We're always looking for new ways to make modern technologies more helpful and accessible. Let's collaborate.
+            We&apos;re always looking for new ways to make modern technologies more helpful and accessible. Let&apos;s collaborate.
           </p>
           <Link href="/get-involved" className="inline-block px-10 py-3.5 border border-accent/40 text-accent rounded-full font-bold hover:bg-accent hover:text-[#181d24] transition-all active:scale-95">
             Suggest a Project

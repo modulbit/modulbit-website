@@ -43,7 +43,7 @@ export default function AboutUs() {
             <div>
               <h2 className="text-3xl font-bold font-poppins mb-6">Get in touch</h2>
               <p className="text-gray-400 font-inter mb-8 text-lg">
-                Have questions, suggestions, or just want to say hi? We'd love to hear from you.
+                Have questions, suggestions, or just want to say hi? We&apos;d love to hear from you.
               </p>
               <Link
                 href="mailto:hello@modulbit.eu"

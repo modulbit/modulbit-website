@@ -9,6 +9,7 @@ import ReactFlow, {
   Position,
   type Node,
   type Edge,
+  type NodeProps,
 } from "reactflow";
 
 import "reactflow/dist/style.css";
@@ -22,6 +23,11 @@ type NodeId =
   | "Monetization"
   | "Partnerships"
   | "Growth";
+
+interface CardData {
+  title: string;
+  text: string;
+}
 
 // Tady si nastavíš rozestupy (v px) – hlavní věc, co chceš
 const GRID_X = 340;
@@ -55,7 +61,7 @@ function cardNode(
 }
 
 const nodeTypes = {
-  card: ({ data }: any) => (
+  card: ({ data }: NodeProps<CardData>) => (
     <div className="relative w-[280px] rounded-2xl bg-white/5 border border-white/10 p-5 backdrop-blur-sm overflow-visible">
       <Handle
         type="target"
