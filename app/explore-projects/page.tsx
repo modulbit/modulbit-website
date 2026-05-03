@@ -39,12 +39,12 @@ export default function ExploreProjects() {
               </div>
 
               <div className="w-24 h-24 mb-10 rounded-2xl bg-accent/10 flex items-center justify-center text-5xl border border-accent/20 shadow-[0_0_30px_rgba(0,255,157,0.1)]">
-                🚀
+                ✉️
               </div>
 
-              <h2 className="text-4xl md:text-5xl font-bold font-poppins mb-6">**Project name**</h2>
+              <h2 className="text-4xl md:text-5xl font-bold font-poppins mb-6">Psaníčko</h2>
               <p className="text-xl text-gray-400 font-inter mb-10 max-w-2xl leading-relaxed">
-                Our most ambitious initiative yet, designed to revolutionize how modern technology accessibility is handled for all generations. A unified platform that simplifies complex interactions into intuitive experiences.
+                Our most ambitious initiative yet, designed to revolutionize how writing emails and accessibility is handled for all generations. A unified platform that simplifies writing messages and emails into intuitive experience. 
               </p>
 
               <div className="flex flex-wrap justify-center gap-4">
@@ -53,11 +53,13 @@ export default function ExploreProjects() {
                 <span className="px-4 py-1.5 rounded-lg bg-white/5 border border-white/10 text-sm font-medium text-gray-300">AI/ML</span>
               </div>
 
+              {/*
               <br />
 
-              <a href="learn-more" className="inline-block px-8 py-3 border border-accent/40 text-accent rounded-full font-bold hover:bg-accent hover:text-[#181d24] transition-all active:scale-95">
+              <a href="learn-more-mail" className="inline-block px-8 py-3 border border-accent/40 text-accent rounded-full font-bold hover:bg-accent hover:text-[#181d24] transition-all active:scale-95">
                 Learn More
               </a>
+              */}
 
             </div>
           </div>
