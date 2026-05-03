@@ -1,6 +1,15 @@
+import type { Metadata } from "next";
 import "./globals.css";
 import { Inter, Poppins } from "next/font/google";
 import TopBar from "@/components/top-bar";
+
+export const metadata: Metadata = {
+  title: "modulBit",
+  description: "Bringing Modern Technologies closer to everyone",
+  icons: {
+    icon: "/logo.png",
+  },
+};
 
 const inter = Inter({
   subsets: ["latin"],

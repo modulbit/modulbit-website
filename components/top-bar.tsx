@@ -1,4 +1,5 @@
 import Link from "next/link";
+import Image from "next/image";
 
 const TopBar = () => {
   return (
@@ -9,6 +10,13 @@ const TopBar = () => {
           href="/"
           className="group flex items-center gap-3 transition-transform hover:scale-[1.02] active:scale-95"
         >
+          <Image
+            src="/logo.png"
+            alt="modulBit Logo"
+            width={32}
+            height={32}
+            className="h-8 w-8 rounded-lg"
+          />
           <span className="text-xl font-bold tracking-tight text-white font-poppins">
             modul<span className="text-[#00ff9d]">Bit</span>
           </span>
