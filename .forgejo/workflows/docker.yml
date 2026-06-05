@@ -11,9 +11,9 @@ jobs:
       contents: read
       packages: write
     steps:
-      - name: Install Node.js
+      - name: Install packages
         run: |
-          dnf install -y nodejs
+          dnf install -y nodejs docker
 
       - name: Checkout
         uses: actions/checkout@v4
