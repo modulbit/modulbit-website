@@ -25,9 +25,9 @@ jobs:
 
       - name: Log in to Forgejo Container Registry
         run: |
-          echo "${{ secrets.REGISTRY_TOKEN }}" | docker login \
+          docker login \
             -u smoliicek \
-            --password-stdin \
+            --password ${{ secrets.REGISTRY_TOKEN }} \
             "${{ env.REGISTRY }}"
 
       - name: Build & Push image
