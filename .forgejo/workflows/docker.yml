@@ -21,8 +21,8 @@ jobs:
       - name: Log in to Forgejo Container Registry
         run: |
           docker login \
-            -u ${{ github.actor }} \
-            -p ${{ secrets.GITHUB_TOKEN }} \
+            -u smoliicek \
+            -p ${{ secrets.REGISTRY_TOKEN }} \
             git.modulbit.eu
 
       - name: Build & Push image
