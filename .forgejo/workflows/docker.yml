@@ -25,20 +25,14 @@ jobs:
             -p ${{ secrets.FORGEJO_TOKEN }} \
             git.modulbit.eu
 
-      - name: Build image
+      - name: Build & Push image
         shell: bash
         run: |
           SHORT_SHA="${GITHUB_SHA::7}"
-          IMAGE_BASE="git.modulbit.eu/${{ github.repository }}"
+          IMAGE_BASE="git.modulbit.eu/$(echo '${{ github.repository }}' | tr '[:upper:]' '[:lower:]')"
           docker build \
             -t "${IMAGE_BASE}:latest" \
             -t "${IMAGE_BASE}:sha-${SHORT_SHA}" \
             .
-
-      - name: Push image
-        shell: bash
-        run: |
-          SHORT_SHA="${GITHUB_SHA::7}"
-          IMAGE_BASE="git.modulbit.eu/${{ github.repository }}"
           docker push "${IMAGE_BASE}:latest"
           docker push "${IMAGE_BASE}:sha-${SHORT_SHA}"
