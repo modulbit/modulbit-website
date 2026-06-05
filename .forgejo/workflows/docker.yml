@@ -1,27 +1,29 @@
+---
 name: Build & Push Docker Image
-
 on:
   push:
     branches:
       - main
-
 jobs:
   build:
-    runs-on: ubuntu-latest
+    runs-on: fedora-44
     permissions:
       contents: read
       packages: write
-
     steps:
       - name: Checkout
         uses: actions/checkout@v4
 
-      - name: Log in to GitHub Container Registry
+      - name: Install Node.js
+        run: |
+          dnf install -y nodejs
+
+      - name: Log in to Forgejo Container Registry
         uses: docker/login-action@v3
         with:
-          registry: ghcr.io
+          registry: ${{ vars.FORGEJO_HOST }}
           username: ${{ github.actor }}
-          password: ${{ secrets.GITHUB_TOKEN }}
+          password: ${{ secrets.FORGEJO_TOKEN }}
 
       - name: Set up Buildx
         uses: docker/setup-buildx-action@v3
@@ -30,7 +32,7 @@ jobs:
         id: meta
         uses: docker/metadata-action@v5
         with:
-          images: ghcr.io/${{ github.repository }}
+          images: ${{ vars.FORGEJO_HOST }}/${{ github.repository }}
           tags: |
             type=sha
             type=raw,value=latest
