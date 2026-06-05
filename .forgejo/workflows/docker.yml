@@ -18,7 +18,7 @@ jobs:
       - name: Start docker
         run: |
           dockerd &
-          sleep 3
+          timeout 30 sh -c 'until docker info > /dev/null 2>&1; do sleep 1; done'
 
       - name: Checkout
         uses: actions/checkout@v4
