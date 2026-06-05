@@ -22,7 +22,7 @@ jobs:
         run: |
           docker login \
             -u ${{ github.actor }} \
-            -p ${{ secrets.FORGEJO_TOKEN }} \
+            -p ${{ secrets.GITHUB_TOKEN }} \
             git.modulbit.eu
 
       - name: Build & Push image
