@@ -16,6 +16,9 @@ jobs:
       contents: read
       packages: write
     steps:
+       - name: Install Docker CLI
+         run: apt-get update -qq && apt-get install -y -qq docker.io
+
       - name: Checkout
         uses: actions/checkout@v4
 
