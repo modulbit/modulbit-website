@@ -15,6 +15,10 @@ jobs:
         run: |
           dnf install -y nodejs docker
 
+      - name: Start docker
+        run: |
+          systemctl start docker
+
       - name: Checkout
         uses: actions/checkout@v4
 
