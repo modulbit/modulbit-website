@@ -34,10 +34,9 @@ jobs:
 
       - name: Log in to Forgejo Container Registry
         run: |
-          echo "${{ secrets.REGISTRY_TOKEN }}" | \
-            docker login git.modulbit.eu \
-              --username smoliicek \
-              --password-stdin
+          docker login git.modulbit.eu \
+            --username smoliicek \
+            --password ${{ secrets.REGISTRY_TOKEN }}
 
       - name: Build & Push image
         env:
