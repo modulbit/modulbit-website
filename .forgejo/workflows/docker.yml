@@ -20,16 +20,16 @@ jobs:
 
       - name: Log in to Forgejo Container Registry
         run: |
-          buildah login -u ${{ github.actor }} -p ${{ secrets.FORGEJO_TOKEN }} git.modulbit.eu
+          BUILDAH_ISOLATION=chroot buildah login -u ${{ github.actor }} -p ${{ secrets.FORGEJO_TOKEN }} git.modulbit.eu
 
       - name: Build image
         run: |
-          buildah build \
+          BUILDAH_ISOLATION=chroot buildah build \
             -t git.modulbit.eu/${{ github.repository }}:latest \
             -t git.modulbit.eu/${{ github.repository }}:sha-${GITHUB_SHA::7} \
             .
 
       - name: Push image
         run: |
-          buildah push git.modulbit.eu/${{ github.repository }}:latest
-          buildah push git.modulbit.eu/${{ github.repository }}:sha-${GITHUB_SHA::7}
+          BUILDAH_ISOLATION=chroot buildah push git.modulbit.eu/${{ github.repository }}:latest
+          BUILDAH_ISOLATION=chroot buildah push git.modulbit.eu/${{ github.repository }}:sha-${GITHUB_SHA::7}
