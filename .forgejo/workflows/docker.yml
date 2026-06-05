@@ -4,32 +4,38 @@ on:
   push:
     branches:
       - main
+
 jobs:
   build:
-    runs-on: fedora-44
+    runs-on: ubuntu-latest
     permissions:
       contents: read
       packages: write
     steps:
-      - name: Install packages
-        run: |
-          dnf install -y nodejs buildah
-
       - name: Checkout
         uses: actions/checkout@v4
 
       - name: Log in to Forgejo Container Registry
         run: |
-          BUILDAH_ISOLATION=chroot buildah login -u ${{ github.actor }} -p ${{ secrets.FORGEJO_TOKEN }} git.modulbit.eu
+          docker login \
+            -u ${{ github.actor }} \
+            -p ${{ secrets.FORGEJO_TOKEN }} \
+            git.modulbit.eu
 
       - name: Build image
+        shell: bash
         run: |
-          BUILDAH_ISOLATION=chroot buildah build \
-            -t git.modulbit.eu/${{ github.repository }}:latest \
-            -t git.modulbit.eu/${{ github.repository }}:sha-${GITHUB_SHA::7} \
+          SHORT_SHA="${GITHUB_SHA::7}"
+          IMAGE_BASE="git.modulbit.eu/${{ github.repository }}"
+          docker build \
+            -t "${IMAGE_BASE}:latest" \
+            -t "${IMAGE_BASE}:sha-${SHORT_SHA}" \
             .
 
       - name: Push image
+        shell: bash
         run: |
-          BUILDAH_ISOLATION=chroot buildah push git.modulbit.eu/${{ github.repository }}:latest
-          BUILDAH_ISOLATION=chroot buildah push git.modulbit.eu/${{ github.repository }}:sha-${GITHUB_SHA::7}
+          SHORT_SHA="${GITHUB_SHA::7}"
+          IMAGE_BASE="git.modulbit.eu/${{ github.repository }}"
+          docker push "${IMAGE_BASE}:latest"
+          docker push "${IMAGE_BASE}:sha-${SHORT_SHA}"
