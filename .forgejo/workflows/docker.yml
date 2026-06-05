@@ -12,30 +12,40 @@ env:
 jobs:
   build:
     runs-on: ubuntu-latest
+    container:
+      image: docker:dind
+      options: --privileged
+    services:
+      docker:
+        image: docker:dind
+        options: --privileged
     permissions:
       contents: read
       packages: write
     steps:
-      - name: Install Docker CLI
+      - name: Wait for Docker daemon
         run: |
-          apt-get update -qq && apt-get install -y -qq docker.io
+          until docker info; do
+            echo "Waiting for Docker daemon..."
+            sleep 2
+          done
 
       - name: Checkout
         uses: actions/checkout@v4
 
       - name: Log in to Forgejo Container Registry
         run: |
-          docker login \
-            -u ${{ github.actor }} \
-            --password ${{ secrets.REGISTRY_TOKEN }} \
-            "${{ env.REGISTRY }}"
+          echo "${{ secrets.REGISTRY_TOKEN }}" | \
+            docker login git.modulbit.eu \
+              --username smoliicek \
+              --password-stdin
 
       - name: Build & Push image
         env:
           REPO: ${{ github.repository }}
         run: |
           SHORT_SHA="${GITHUB_SHA::7}"
-          IMAGE_BASE="${{ env.REGISTRY }}/$(echo "${REPO}" | tr '[:upper:]' '[:lower:]')"
+          IMAGE_BASE="git.modulbit.eu/$(echo "${REPO}" | tr '[:upper:]' '[:lower:]')"
 
           docker build \
             -t "${IMAGE_BASE}:latest" \
