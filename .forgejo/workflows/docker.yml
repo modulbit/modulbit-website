@@ -1,9 +1,13 @@
 ---
 name: Build & Push Docker Image
+
 on:
   push:
     branches:
       - main
+
+env:
+  REGISTRY: git.modulbit.eu
 
 jobs:
   build:
@@ -12,27 +16,27 @@ jobs:
       contents: read
       packages: write
     steps:
-      - name: Install Docker CLI
-        run: apt-get update -qq && apt-get install -y -qq docker.io
-
       - name: Checkout
         uses: actions/checkout@v4
 
       - name: Log in to Forgejo Container Registry
         run: |
-          docker login \
+          echo "${{ secrets.REGISTRY_TOKEN }}" | docker login \
             -u smoliicek \
-            -p ${{ secrets.REGISTRY_TOKEN }} \
-            git.modulbit.eu
+            --password-stdin \
+            "${{ env.REGISTRY }}"
 
       - name: Build & Push image
-        shell: bash
+        env:
+          REPO: ${{ github.repository }}
         run: |
           SHORT_SHA="${GITHUB_SHA::7}"
-          IMAGE_BASE="git.modulbit.eu/$(echo '${{ github.repository }}' | tr '[:upper:]' '[:lower:]')"
+          IMAGE_BASE="${{ env.REGISTRY }}/$(echo "${REPO}" | tr '[:upper:]' '[:lower:]')"
+
           docker build \
             -t "${IMAGE_BASE}:latest" \
             -t "${IMAGE_BASE}:sha-${SHORT_SHA}" \
             .
+
           docker push "${IMAGE_BASE}:latest"
           docker push "${IMAGE_BASE}:sha-${SHORT_SHA}"
