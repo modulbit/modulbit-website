@@ -21,7 +21,7 @@ jobs:
       - name: Log in to Forgejo Container Registry
         uses: docker/login-action@v3
         with:
-          registry: ${{ vars.FORGEJO_HOST }}
+          registry: https://git.modulbit.eu
           username: ${{ github.actor }}
           password: ${{ secrets.FORGEJO_TOKEN }}
 
@@ -32,7 +32,7 @@ jobs:
         id: meta
         uses: docker/metadata-action@v5
         with:
-          images: ${{ vars.FORGEJO_HOST }}/${{ github.repository }}
+          images: https://git.modulbit.eu/${{ github.repository }}
           tags: |
             type=sha
             type=raw,value=latest
