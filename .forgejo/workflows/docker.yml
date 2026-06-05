@@ -6,27 +6,26 @@ on:
     branches:
       - main
 
-env:
-  REGISTRY: git.modulbit.eu
-
 jobs:
   build:
     runs-on: ubuntu-latest
     container:
-      image: docker:dind
+      image: catthehacker/ubuntu:act-latest # has Node.js + Docker CLI
       options: --privileged
     services:
       docker:
         image: docker:dind
         options: --privileged
+    env:
+      DOCKER_HOST: tcp://docker:2375 # point CLI at the DinD sidecar
     permissions:
       contents: read
       packages: write
     steps:
       - name: Wait for Docker daemon
         run: |
-          until docker info; do
-            echo "Waiting for Docker daemon..."
+          until docker info > /dev/null 2>&1; do
+            echo "Waiting for daemon..."
             sleep 2
           done
 
