@@ -25,7 +25,7 @@ export default function AboutUs() {
           <div className="p-8 md:p-12 rounded-3xl bg-white/5 border border-white/10 relative overflow-hidden">
             <div className="relative z-10 text-center">
               <p className="text-xl md:text-2xl font-inter leading-relaxed text-gray-200">
-                <span className="text-accent font-bold">Modern technologies shouldn’t have an age limit.</span> While most startups focus solely on the younger generation, <span className="text-accent font-bold">modulBit</span> was founded by two Czech students to ensure the technical revolution includes everyone. We are dedicated to making advanced AI and other technologies intuitive and accessible, regardless of your digital background.
+                <span className="text-accent font-bold">Modern technologies shouldn’t have an age limit.</span> While most startups focus solely on the younger generation, <span className="text-accent font-bold">modulBit</span> was founded by two Czech students to ensure the technical revolution includes everyone. We are dedicated to making advanced AI and other technologies intuitive and accessible, regardless of your digital background. Our target group is often overlooked, but we believe they deserve tools that are simple, respectful, and actually helpful – which is why we&apos;re building <span className="text-accent font-bold">Tara</span>, an AI assistant designed for elderly users who struggle with modern technology.
               </p>
             </div>
           </div>

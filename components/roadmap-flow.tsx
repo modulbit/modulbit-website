@@ -108,7 +108,7 @@ export default function RoadmapFlow() {
         "MVP",
         2,
         1,
-        "Build core app",
+        "Build Tara",
         "Simple UI, email integration, basic AI features.",
         Position.Right,
         Position.Top

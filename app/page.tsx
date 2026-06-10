@@ -50,7 +50,8 @@ export default function Home() {
               </p>
               <p className="max-w-3xl">
                 Our focus is creating tools that help older people use modern technologies with confidence, paired with
-                community-driven software that anyone can improve and reuse.
+                community-driven software that anyone can improve and reuse. That&apos;s why we&apos;re building Tara – an AI
+                assistant that helps elderly users with everyday tech tasks, like a patient, knowledgeable friend would.
               </p>
             </div>
           </div>
@@ -72,7 +73,7 @@ export default function Home() {
               <div className="text-4xl mb-6">🤝</div>
               <h3 className="text-xl font-bold font-poppins mb-4 text-white group-hover:text-accent transition-colors">Accessibility First</h3>
               <p className="text-gray-400 font-inter leading-relaxed">
-                Tools designed for older people to use AI with confidence and ease.
+                Tara, our AI assistant, helps older people handle everyday tech tasks – writing an email, printing a document, or navigating a website – with confidence and ease.
               </p>
             </div>
 

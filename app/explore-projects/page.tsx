@@ -35,12 +35,12 @@ export default function ExploreProjects() {
               </div>
 
               <div className="w-24 h-24 mb-10 rounded-2xl bg-accent/10 flex items-center justify-center text-5xl border border-accent/20">
-                ✉️
+                💬
               </div>
 
-              <h2 className="text-4xl md:text-5xl font-bold font-poppins mb-6">Psaníčko</h2>
+              <h2 className="text-4xl md:text-5xl font-bold font-poppins mb-6">Tara</h2>
               <p className="text-xl text-gray-400 font-inter mb-10 max-w-2xl leading-relaxed">
-                Our most ambitious initiative yet, designed to revolutionize how writing emails and accessibility is handled for all generations. A unified platform that simplifies writing messages and emails into intuitive experience. 
+                Tara is an AI-powered assistant that helps elderly users with everyday tech tasks – things like writing an email, printing a document, or navigating a website. Tara should feel like asking a patient, knowledgeable friend for help, not like using a complicated app.
               </p>
 
               <div className="flex flex-wrap justify-center gap-4">
@@ -57,6 +57,84 @@ export default function ExploreProjects() {
               </a>
               */}
 
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Tara – UX principles */}
+      <section className="py-12 px-6">
+        <div className="mx-auto max-w-5xl">
+          <div className="mb-12 text-center">
+            <h3 className="text-2xl font-bold font-poppins mb-2">How Tara is designed</h3>
+            <p className="text-gray-400 font-inter">Every detail follows a few simple principles</p>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+            <div className="group relative p-8 rounded-2xl bg-white/5 border border-white/10 hover:border-accent/30 card-lift">
+              <div className="text-4xl mb-6">🔍</div>
+              <h4 className="text-xl font-bold font-poppins mb-3 text-white group-hover:text-accent transition-colors">Large, readable text</h4>
+              <p className="text-gray-400 font-inter leading-relaxed">
+                No small fonts or dense layouts – everything is easy on the eyes.
+              </p>
+            </div>
+
+            <div className="group relative p-8 rounded-2xl bg-white/5 border border-white/10 hover:border-accent/30 card-lift">
+              <div className="text-4xl mb-6">🗣️</div>
+              <h4 className="text-xl font-bold font-poppins mb-3 text-white group-hover:text-accent transition-colors">No technical jargon</h4>
+              <p className="text-gray-400 font-inter leading-relaxed">
+                Everything is explained in plain language, the way a friend would.
+              </p>
+            </div>
+
+            <div className="group relative p-8 rounded-2xl bg-white/5 border border-white/10 hover:border-accent/30 card-lift">
+              <div className="text-4xl mb-6">↩️</div>
+              <h4 className="text-xl font-bold font-poppins mb-3 text-white group-hover:text-accent transition-colors">Forgiving UI</h4>
+              <p className="text-gray-400 font-inter leading-relaxed">
+                Mistakes are easy to undo, with clear confirmations before any action.
+              </p>
+            </div>
+
+            <div className="group relative p-8 rounded-2xl bg-white/5 border border-white/10 hover:border-accent/30 card-lift">
+              <div className="text-4xl mb-6">🧭</div>
+              <h4 className="text-xl font-bold font-poppins mb-3 text-white group-hover:text-accent transition-colors">Simple navigation</h4>
+              <p className="text-gray-400 font-inter leading-relaxed">
+                Minimal options on screen at once, so the next step is always clear.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Tara – privacy & tech */}
+      <section className="py-12 px-6">
+        <div className="mx-auto max-w-5xl">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+            <div className="p-8 rounded-2xl bg-white/5 border border-white/10">
+              <div className="text-4xl mb-6">🔒</div>
+              <h4 className="text-xl font-bold font-poppins mb-4 text-white">Privacy &amp; data</h4>
+              <ul className="text-gray-400 font-inter leading-relaxed space-y-3">
+                <li>We are based in the EU and comply with GDPR.</li>
+                <li>AI responses go through OpenRouter, which is GDPR compliant and does not store user content.</li>
+                <li>Conversations are stored until you delete them, or after 2 years of inactivity.</li>
+                <li>Authentication is handled by Clerk, and usage analytics by PostHog.</li>
+              </ul>
+            </div>
+
+            <div className="p-8 rounded-2xl bg-white/5 border border-white/10">
+              <div className="text-4xl mb-6">⚙️</div>
+              <h4 className="text-xl font-bold font-poppins mb-4 text-white">Under the hood</h4>
+              <p className="text-gray-400 font-inter leading-relaxed mb-6">
+                Tara runs on our own infrastructure at tara.modulbit.eu and api.modulbit.eu, deployed with Docker.
+              </p>
+              <div className="flex flex-wrap gap-3">
+                <span className="px-4 py-1.5 rounded-lg bg-white/5 border border-white/10 text-sm font-medium text-gray-300">Next.js</span>
+                <span className="px-4 py-1.5 rounded-lg bg-white/5 border border-white/10 text-sm font-medium text-gray-300">Go</span>
+                <span className="px-4 py-1.5 rounded-lg bg-white/5 border border-white/10 text-sm font-medium text-gray-300">PostgreSQL</span>
+                <span className="px-4 py-1.5 rounded-lg bg-white/5 border border-white/10 text-sm font-medium text-gray-300">Redis</span>
+                <span className="px-4 py-1.5 rounded-lg bg-white/5 border border-white/10 text-sm font-medium text-gray-300">Clerk</span>
+                <span className="px-4 py-1.5 rounded-lg bg-white/5 border border-white/10 text-sm font-medium text-gray-300">OpenRouter</span>
+              </div>
             </div>
           </div>
         </div>
