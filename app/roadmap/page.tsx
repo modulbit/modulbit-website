@@ -3,7 +3,7 @@ import RoadmapFlow from "@/components/roadmap-flow";
 
 export default function RoadmapPage() {
   return (
-    <div className="bg-[#181d24] text-white selection:bg-accent/30 selection:text-white overflow-hidden bg-mesh min-h-screen">
+    <div className="bg-[#181d24] text-white selection:bg-accent/30 selection:text-white overflow-hidden min-h-screen">
       {/* Hero */}
       <section className="relative pt-24 pb-10 px-6">
         <div className="mx-auto max-w-7xl relative z-10 text-center">

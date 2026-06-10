@@ -3,16 +3,15 @@ import Footer from "@/components/footer";
 
 export default function ExploreProjects() {
   return (
-    <div className="bg-[#181d24] text-white selection:bg-accent/30 selection:text-white overflow-hidden bg-mesh min-h-screen">
+    <div className="bg-[#181d24] text-white selection:bg-accent/30 selection:text-white overflow-hidden min-h-screen">
       {/* Hero Section */}
       <section className="relative pt-24 pb-16 px-6">
         <div className="mx-auto max-w-7xl relative z-10 text-center">
-          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-accent/10 border border-accent/20 mb-8">
-            <span className="w-2 h-2 rounded-full bg-accent animate-pulse shadow-[0_0_8px_rgba(0,255,157,1)]"></span>
+          <div className="inline-flex items-center px-3 py-1 rounded-full bg-accent/10 border border-accent/20 mb-8">
             <span className="text-xs font-bold uppercase tracking-widest text-accent">Our Portfolio</span>
           </div>
           <h1 className="text-5xl md:text-7xl font-bold font-poppins leading-[1.1] mb-6 tracking-tight">
-            Explore <span className="text-accent text-glow">Projects</span>
+            Explore <span className="text-accent">Projects</span>
           </h1>
           <p className="text-xl text-gray-400 font-inter mb-10 max-w-2xl mx-auto leading-relaxed">
             Discover the tools and platforms we&apos;re building to bridge the gap between human intuition and artificial intelligence.
@@ -29,16 +28,13 @@ export default function ExploreProjects() {
       {/* Flagship Project - Featured */}
       <section className="py-12 px-6">
         <div className="mx-auto max-w-5xl">
-          <div className="relative group p-1 rounded-3xl bg-gradient-to-br from-accent/20 via-transparent to-accent/5 border border-white/10 hover:border-accent/30 transition-all duration-500 overflow-hidden box-glow">
-            {/* Background Glow */}
-            <div className="absolute inset-0 bg-accent/5 opacity-50 group-hover:opacity-100 transition-opacity duration-500"></div>
-
+          <div className="relative group rounded-3xl border border-white/10 hover:border-accent/30 transition-all duration-500 overflow-hidden">
             <div className="relative z-10 bg-[#1a2028] rounded-[calc(1.5rem-1px)] p-8 md:p-16 flex flex-col items-center text-center">
               <div className="md:absolute md:top-8 md:right-8 px-4 py-1.5 rounded-full bg-accent/10 border border-accent/30 mb-8 md:mb-0">
-                <span className="text-xs font-bold uppercase tracking-widest text-accent animate-pulse">Coming Soon</span>
+                <span className="text-xs font-bold uppercase tracking-widest text-accent">Coming Soon</span>
               </div>
 
-              <div className="w-24 h-24 mb-10 rounded-2xl bg-accent/10 flex items-center justify-center text-5xl border border-accent/20 shadow-[0_0_30px_rgba(0,255,157,0.1)]">
+              <div className="w-24 h-24 mb-10 rounded-2xl bg-accent/10 flex items-center justify-center text-5xl border border-accent/20">
                 ✉️
               </div>
 
@@ -75,7 +71,7 @@ export default function ExploreProjects() {
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            <div className="group relative p-8 rounded-2xl bg-white/5 border border-white/10 hover:border-accent/30 transition-all duration-300 overflow-hidden box-glow-hover">
+            <div className="group relative p-8 rounded-2xl bg-white/5 border border-white/10 hover:border-accent/30 card-lift overflow-hidden">
               <div className="absolute top-4 right-4 text-xs font-mono text-gray-600">ID: MB-002</div>
               <div className="w-12 h-12 mb-6 rounded-xl bg-white/5 border border-white/10 flex items-center justify-center text-2xl group-hover:scale-110 transition-transform">
                 🛒
@@ -87,7 +83,7 @@ export default function ExploreProjects() {
               <div className="text-gray-500 text-sm font-medium">Coming soon</div>
             </div>
 
-            <div className="group relative p-8 rounded-2xl bg-white/5 border border-white/10 hover:border-accent/30 transition-all duration-300 overflow-hidden box-glow-hover">
+            <div className="group relative p-8 rounded-2xl bg-white/5 border border-white/10 hover:border-accent/30 card-lift overflow-hidden">
               <div className="absolute top-4 right-4 text-xs font-mono text-gray-600">ID: MB-003</div>
               <div className="w-12 h-12 mb-6 rounded-xl bg-white/5 border border-white/10 flex items-center justify-center text-2xl group-hover:scale-110 transition-transform">
                 📡
@@ -99,7 +95,7 @@ export default function ExploreProjects() {
               <div className="text-gray-500 text-sm font-medium">Coming soon</div>
             </div>
 
-            <div className="group relative p-8 rounded-2xl bg-white/5 border border-white/10 hover:border-accent/30 transition-all duration-300 overflow-hidden box-glow-hover">
+            <div className="group relative p-8 rounded-2xl bg-white/5 border border-white/10 hover:border-accent/30 card-lift overflow-hidden">
               <div className="absolute top-4 right-4 text-xs font-mono text-gray-600">ID: MB-004</div>
               <div className="w-12 h-12 mb-6 rounded-xl bg-white/5 border border-white/10 flex items-center justify-center text-2xl group-hover:scale-110 transition-transform">
                 🎨
@@ -116,7 +112,6 @@ export default function ExploreProjects() {
 
       {/* Bottom CTA */}
       <section className="py-24 px-6 relative overflow-hidden">
-        <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-[800px] h-[300px] bg-accent/5 blur-[120px] rounded-full pointer-events-none"></div>
         <div className="mx-auto max-w-4xl text-center relative z-10">
           <h2 className="text-3xl font-bold font-poppins mb-8">Have an idea for a project?</h2>
           <p className="text-lg text-gray-400 font-inter mb-10 max-w-lg mx-auto">

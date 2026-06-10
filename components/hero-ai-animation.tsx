@@ -46,13 +46,9 @@ const HeroAIAnimation = () => {
   );
 
   return (
-    <div className="relative w-full md:w-[500px] aspect-[4/3] group">
-      {/* Decorative background glows */}
-      <div className="absolute inset-0 bg-accent/10 rounded-3xl rotate-3 group-hover:rotate-6 transition-transform duration-700"></div>
-      <div className="absolute inset-0 bg-accent/5 rounded-3xl -rotate-2 group-hover:-rotate-4 transition-transform duration-700 delay-100"></div>
-
+    <div className="relative w-full md:w-[500px] aspect-[4/3]">
       {/* Main Terminal Window */}
-      <div className="relative h-full w-full rounded-2xl bg-[#0f141a]/90 border border-white/10 backdrop-blur-xl overflow-hidden flex flex-col shadow-2xl">
+      <div className="relative h-full w-full rounded-2xl bg-[#0f141a] border border-white/10 overflow-hidden flex flex-col shadow-2xl">
         {/* Terminal Header */}
         <div className="flex items-center gap-2 px-4 py-3 border-b border-white/5 bg-white/5">
           <div className="flex gap-1.5">
@@ -97,9 +93,6 @@ const HeroAIAnimation = () => {
           <span>AI-Core v1.0.4</span>
         </div>
       </div>
-
-      {/* Floating Glow */}
-      <div className="absolute -bottom-10 -right-10 w-40 h-40 bg-accent/20 blur-[80px]"></div>
     </div>
   );
 };
