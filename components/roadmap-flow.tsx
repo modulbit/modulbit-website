@@ -14,6 +14,10 @@ import ReactFlow, {
 
 import "reactflow/dist/style.css";
 
+import type { Dictionary } from "@/lib/dictionaries";
+
+type RoadmapLabels = Dictionary["roadmap"]["nodes"];
+
 type NodeId =
   | "start"
   | "website"
@@ -83,15 +87,15 @@ const nodeTypes = {
   ),
 };
 
-export default function RoadmapFlow() {
+export default function RoadmapFlow({ labels }: { labels: RoadmapLabels }) {
   const nodes: Node[] = useMemo(
     () => [
       cardNode(
         "start",
         0,
         0,
-        "Start",
-        "Mission, brand, communication.",
+        labels.start.title,
+        labels.start.text,
         Position.Right,
         Position.Bottom
       ),
@@ -99,8 +103,8 @@ export default function RoadmapFlow() {
         "website",
         1,
         0,
-        "Organization website",
-        "Main pages, clarity, accessibility, trust.",
+        labels.website.title,
+        labels.website.text,
         Position.Right,
         Position.Left
       ),
@@ -108,8 +112,8 @@ export default function RoadmapFlow() {
         "MVP",
         2,
         1,
-        "Build Tara",
-        "Simple UI, email integration, basic AI features.",
+        labels.mvp.title,
+        labels.mvp.text,
         Position.Right,
         Position.Top
       ),
@@ -117,8 +121,8 @@ export default function RoadmapFlow() {
         "User testing",
         3,
         1,
-        "Test with seniors",
-        "Gather feedback from senior users, improve usability.",
+        labels.testing.title,
+        labels.testing.text,
         Position.Left,
         Position.Left
       ),
@@ -126,8 +130,8 @@ export default function RoadmapFlow() {
         "Product focus",
         3,
         2,
-        "Product focus",
-        "Refine features based on user feedback.",
+        labels.focus.title,
+        labels.focus.text,
         Position.Left,
         Position.Left
       ),
@@ -135,8 +139,8 @@ export default function RoadmapFlow() {
         "Monetization",
         4,
         3,
-        "Monetization",
-        "Introduce pricing tiers and subscription models.",
+        labels.monetization.title,
+        labels.monetization.text,
         Position.Left,
         Position.Left
       ),
@@ -144,8 +148,8 @@ export default function RoadmapFlow() {
         "Partnerships",
         3,
         3,
-        "Senior-friendly onboarding",
-        "Guided setup, bigger UI, step-by-step flow.",
+        labels.onboarding.title,
+        labels.onboarding.text,
         Position.Right,
         Position.Top
       ),
@@ -153,13 +157,13 @@ export default function RoadmapFlow() {
         "Growth",
         5,
         3,
-        "Partnerships & support",
-        "Communities, institutions, public support.",
+        labels.growth.title,
+        labels.growth.text,
         Position.Left,
         Position.Left
       ),
     ],
-    []
+    [labels]
   );
 
   const edges: Edge[] = useMemo(

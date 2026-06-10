@@ -1,11 +1,12 @@
 "use client";
 
 import { FormEvent, useState } from "react";
+import type { Dictionary } from "@/lib/dictionaries";
 
 type SubmitState = "idle" | "success" | "error";
-const DEFAULT_ERROR_MESSAGE = "Nepodařilo se odeslat report. Zkus to prosím znovu.";
+type FormText = Dictionary["reportBug"]["form"];
 
-export default function BugReportForm() {
+export default function BugReportForm({ t }: { t: FormText }) {
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [submitState, setSubmitState] = useState<SubmitState>("idle");
   const [message, setMessage] = useState("");
@@ -42,20 +43,18 @@ export default function BugReportForm() {
       }
 
       if (!response.ok) {
-        throw new Error(data.message ?? DEFAULT_ERROR_MESSAGE);
+        throw new Error(data.message ?? t.errorDefault);
       }
 
       setSubmitState("success");
       setMessage(
-        data.issueUrl
-          ? `Thanks, report was successfuly sent: ${data.issueUrl}`
-          : "Thanks, report was successfuly sent.",
+        data.issueUrl ? `${t.successWithUrl}${data.issueUrl}` : t.success,
       );
       event.currentTarget?.reset();
     } catch (error) {
       setSubmitState("error");
       setMessage(
-        error instanceof Error ? error.message : DEFAULT_ERROR_MESSAGE,
+        error instanceof Error ? error.message : t.errorDefault,
       );
     } finally {
       setIsSubmitting(false);
@@ -69,7 +68,7 @@ export default function BugReportForm() {
     >
       <div className="space-y-2">
         <label htmlFor="title" className="text-sm font-semibold text-white">
-          Bug title *
+          {t.titleLabel}
         </label>
         <input
           id="title"
@@ -77,13 +76,13 @@ export default function BugReportForm() {
           required
           maxLength={120}
           className="w-full rounded-xl border border-white/15 bg-black/20 px-4 py-3 text-white outline-none focus:border-accent"
-          placeholder="Exapmle: Button on the main website doesn't work"
+          placeholder={t.titlePlaceholder}
         />
       </div>
 
       <div className="space-y-2">
         <label htmlFor="description" className="text-sm font-semibold text-white">
-          Bug description *
+          {t.descriptionLabel}
         </label>
         <textarea
           id="description"
@@ -92,14 +91,14 @@ export default function BugReportForm() {
           maxLength={4000}
           rows={6}
           className="w-full rounded-xl border border-white/15 bg-black/20 px-4 py-3 text-white outline-none focus:border-accent"
-          placeholder="What happened, What was the expecting output..."
+          placeholder={t.descriptionPlaceholder}
         />
       </div>
 
       <div className="grid gap-6 md:grid-cols-2">
         <div className="space-y-2">
           <label htmlFor="email" className="text-sm font-semibold text-white">
-            Contact (optional)
+            {t.contactLabel}
           </label>
           <input
             id="email"
@@ -107,13 +106,13 @@ export default function BugReportForm() {
             type="email"
             maxLength={200}
             className="w-full rounded-xl border border-white/15 bg-black/20 px-4 py-3 text-white outline-none focus:border-accent"
-            placeholder="your@email.com"
+            placeholder={t.contactPlaceholder}
           />
         </div>
 
         <div className="space-y-2">
           <label htmlFor="pageUrl" className="text-sm font-semibold text-white">
-            Website URL (optional)
+            {t.urlLabel}
           </label>
           <input
             id="pageUrl"
@@ -121,7 +120,7 @@ export default function BugReportForm() {
             type="url"
             maxLength={500}
             className="w-full rounded-xl border border-white/15 bg-black/20 px-4 py-3 text-white outline-none focus:border-accent"
-            placeholder="https://modulbit.eu/..."
+            placeholder={t.urlPlaceholder}
           />
         </div>
       </div>
@@ -131,7 +130,7 @@ export default function BugReportForm() {
         disabled={isSubmitting}
         className="inline-flex items-center justify-center rounded-full bg-accent px-8 py-3 font-bold text-[#181d24] transition-all hover:scale-105 active:scale-95 disabled:opacity-60 disabled:hover:scale-100"
       >
-        {isSubmitting ? "Sending..." : "report a bug"}
+        {isSubmitting ? t.submitting : t.submit}
       </button>
 
       {message ? (

@@ -1,20 +1,29 @@
 import Link from "next/link";
 import Footer from "@/components/footer";
+import { getDictionary } from "@/lib/dictionaries";
+import { toLocale } from "@/lib/locales";
 
-export default function AboutUs() {
+export default async function AboutUs({
+  params,
+}: {
+  params: Promise<{ lang: string }>;
+}) {
+  const lang = toLocale((await params).lang);
+  const t = getDictionary(lang).about;
+
   return (
     <div className="bg-[#181d24] text-white selection:bg-accent/30 selection:text-white overflow-hidden min-h-screen">
       {/* Hero Section */}
       <section className="relative pt-24 pb-20 px-6">
         <div className="mx-auto max-w-7xl relative z-10 text-center">
           <div className="inline-flex items-center px-3 py-1 rounded-full bg-accent/10 border border-accent/20 mb-8">
-            <span className="text-xs font-bold uppercase tracking-widest text-accent">Our Story</span>
+            <span className="text-xs font-bold uppercase tracking-widest text-accent">{t.badge}</span>
           </div>
           <h1 className="text-5xl md:text-7xl font-bold font-poppins leading-[1.1] mb-6 tracking-tight">
-            About <span className="text-accent">modulBit</span>
+            {t.titlePrefix} <span className="text-accent">modulBit</span>
           </h1>
           <p className="text-xl text-gray-400 font-inter mb-10 max-w-3xl mx-auto leading-relaxed">
-            Founded with a vision to ensure no one is left behind in the AI revolution.
+            {t.subtitle}
           </p>
         </div>
       </section>
@@ -25,7 +34,7 @@ export default function AboutUs() {
           <div className="p-8 md:p-12 rounded-3xl bg-white/5 border border-white/10 relative overflow-hidden">
             <div className="relative z-10 text-center">
               <p className="text-xl md:text-2xl font-inter leading-relaxed text-gray-200">
-                <span className="text-accent font-bold">Modern technologies shouldn’t have an age limit.</span> While most startups focus solely on the younger generation, <span className="text-accent font-bold">modulBit</span> was founded by two Czech students to ensure the technical revolution includes everyone. We are dedicated to making advanced AI and other technologies intuitive and accessible, regardless of your digital background. Our target group is often overlooked, but we believe they deserve tools that are simple, respectful, and actually helpful – which is why we&apos;re building <span className="text-accent font-bold">Tara</span>, an AI assistant designed for elderly users who struggle with modern technology.
+                <span className="text-accent font-bold">{t.missionLead}</span>{t.missionBody1}<span className="text-accent font-bold">modulBit</span>{t.missionBody2}<span className="text-accent font-bold">{t.missionTara}</span>{t.missionBody3}
               </p>
             </div>
           </div>
@@ -38,9 +47,9 @@ export default function AboutUs() {
           <div className="grid grid-cols-1 md:grid-cols-2 gap-12">
             {/* Get in touch */}
             <div>
-              <h2 className="text-3xl font-bold font-poppins mb-6">Get in touch</h2>
+              <h2 className="text-3xl font-bold font-poppins mb-6">{t.contactTitle}</h2>
               <p className="text-gray-400 font-inter mb-8 text-lg">
-                Have questions, suggestions, or just want to say hi? We&apos;d love to hear from you.
+                {t.contactText}
               </p>
               <Link
                 href="mailto:hello@modulbit.eu"
@@ -53,7 +62,7 @@ export default function AboutUs() {
 
             {/* Socials */}
             <div>
-              <h2 className="text-3xl font-bold font-poppins mb-6">Follow our journey</h2>
+              <h2 className="text-3xl font-bold font-poppins mb-6">{t.followTitle}</h2>
               <div className="flex flex-col gap-4">
                 <Link href="https://github.com/modulbit" className="group flex items-center justify-between p-6 rounded-2xl bg-white/5 border border-white/10 hover:border-accent/30 card-lift">
                   <div className="flex items-center gap-4">
@@ -67,14 +76,14 @@ export default function AboutUs() {
                     <span className="text-2xl">🐦</span>
                     <span className="font-bold font-poppins">Twitter / X</span>
                   </div>
-                  <span className="text-gray-500 group-hover:text-accent transition-colors">Coming soon</span>
+                  <span className="text-gray-500 group-hover:text-accent transition-colors">{t.comingSoon}</span>
                 </Link>
                 <Link href="#" className="group flex items-center justify-between p-6 rounded-2xl bg-white/5 border border-white/10 hover:border-accent/30 card-lift">
                   <div className="flex items-center gap-4">
                     <span className="text-2xl">🔗</span>
                     <span className="font-bold font-poppins">LinkedIn</span>
                   </div>
-                  <span className="text-gray-500 group-hover:text-accent transition-colors">Coming soon</span>
+                  <span className="text-gray-500 group-hover:text-accent transition-colors">{t.comingSoon}</span>
                 </Link>
               </div>
             </div>
@@ -82,7 +91,7 @@ export default function AboutUs() {
         </div>
       </section>
 
-      <Footer />
+      <Footer lang={lang} />
     </div>
   );
 }

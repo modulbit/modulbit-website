@@ -2,17 +2,8 @@
 
 import { useState, useEffect, useMemo } from "react";
 
-const HeroAIAnimation = () => {
-  const messages = useMemo(() => [
-    "Hello! How can I help you today?",
-    "It's nice to meet you!",
-    "modulBit is making AI accessible for everyone.",
-    "Bridging the gap between generations with open source.",
-    "Building tools that empower seniors to use AI.",
-    "Technology should be for everyone.",
-    "The AI your parents will fall in love with!",
-    "Join our mission to democratize technology."
-  ], []);
+const HeroAIAnimation = ({ messages: messageList }: { messages: string[] }) => {
+  const messages = useMemo(() => messageList, [messageList]);
 
   const [currentMessageIndex, setCurrentMessageIndex] = useState(0);
   const [displayResponse, setDisplayResponse] = useState("");
