@@ -57,7 +57,7 @@ export default async function Home({
               <p>
                 {t.missionP1}
               </p>
-              <p className="max-w-3xl">
+              <p className="max-w-3xl mx-auto">
                 {t.missionP2}
               </p>
             </div>
