@@ -24,11 +24,7 @@ export function proxy(request: NextRequest) {
     (locale) => pathname === `/${locale}` || pathname.startsWith(`/${locale}/`)
   );
   if (pathnameHasLocale) {
-    // Forward the locale as a header so the not-found page (which gets no
-    // route params) can render in the right language.
-    const requestHeaders = new Headers(request.headers);
-    requestHeaders.set("x-locale", pathname.split("/")[1]);
-    return NextResponse.next({ request: { headers: requestHeaders } });
+    return NextResponse.next();
   }
 
   const locale = getLocale(request);

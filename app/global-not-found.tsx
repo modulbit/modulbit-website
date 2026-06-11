@@ -1,13 +1,15 @@
-"use client";
-
+import type { Metadata } from "next";
+import "./globals.css";
+import { Inter, Poppins } from "next/font/google";
 import Link from "next/link";
-import { usePathname } from "next/navigation";
 import Footer from "@/components/footer";
-import { defaultLocale, hasLocale, type Locale } from "@/lib/locales";
+import type { Locale } from "@/lib/locales";
 
-// Client component because not-found pages get no route params — the locale
-// is read from the URL on the client. Prerenders in English, swaps after
-// hydration. Texts are inlined to keep the dictionaries out of the bundle.
+// Routing-level 404 (experimental.globalNotFound): rendered when no route
+// matches, outside the [lang] layout, so it must return a full <html>
+// document and cannot receive a locale param. Both language variants are
+// rendered; the inline script below sets <html lang> from the URL before
+// first paint and CSS shows the matching one. English is the no-JS fallback.
 const text: Record<Locale, {
   badge: string;
   title: string;
@@ -31,14 +33,31 @@ const text: Record<Locale, {
   },
 };
 
-export default function NotFoundContent() {
-  const pathname = usePathname();
-  const segment = (pathname ?? "").split("/")[1] ?? "";
-  const lang: Locale = hasLocale(segment) ? segment : defaultLocale;
+export const metadata: Metadata = {
+  title: "modulBit",
+  icons: {
+    icon: "/logo.png",
+  },
+};
+
+const inter = Inter({
+  subsets: ["latin", "latin-ext"],
+  variable: "--font-inter",
+  display: "swap",
+});
+
+const poppins = Poppins({
+  subsets: ["latin", "latin-ext"],
+  weight: ["400", "500", "600", "700"],
+  variable: "--font-poppins",
+  display: "swap",
+});
+
+const NotFoundBody = ({ lang }: { lang: Locale }) => {
   const t = text[lang];
 
   return (
-    <div className="bg-[#181d24] text-white selection:bg-accent/30 selection:text-white overflow-hidden min-h-[calc(100vh-73px)] flex flex-col">
+    <div className="bg-[#181d24] text-white selection:bg-accent/30 selection:text-white overflow-hidden min-h-screen flex flex-col">
       <div className="flex-1 flex flex-col items-center justify-center px-6 py-24 text-center">
         <div className="inline-flex items-center px-3 py-1 rounded-full bg-accent/10 border border-accent/20 mb-8">
           <span className="text-xs font-bold uppercase tracking-widest text-accent">{t.badge}</span>
@@ -66,5 +85,31 @@ export default function NotFoundContent() {
 
       <Footer lang={lang} />
     </div>
+  );
+};
+
+export default function GlobalNotFound() {
+  return (
+    <html
+      lang="en"
+      className={`${inter.variable} ${poppins.variable} h-full antialiased`}
+    >
+      <head>
+        <script
+          dangerouslySetInnerHTML={{
+            __html:
+              'if(/^\\/cs(\\/|$)/.test(location.pathname))document.documentElement.lang="cs"',
+          }}
+        />
+      </head>
+      <body className="min-h-full bg-[#181d24]">
+        <div className="hidden [html[lang=en]_&]:block">
+          <NotFoundBody lang="en" />
+        </div>
+        <div className="hidden [html[lang=cs]_&]:block">
+          <NotFoundBody lang="cs" />
+        </div>
+      </body>
+    </html>
   );
 }
