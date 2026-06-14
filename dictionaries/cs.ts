@@ -8,7 +8,7 @@ const cs: Dictionary = {
     aboutUs: "O nás",
     exploreProjects: "Projekty",
     reportBug: "Nahlásit chybu",
-    getInvolved: "Zapojte se",
+    getInvolved: "Zapoj se",
   },
   footer: {
     rights: "Všechna práva vyhrazena.",
@@ -29,7 +29,7 @@ const cs: Dictionary = {
       "Soustředíme se na nástroje, které pomáhají starším lidem používat moderní technologie s jistotou, a na komunitní software, který může kdokoli vylepšovat a znovu využívat. Proto stavíme Taru – AI asistentku, která seniorům pomáhá s každodenními technickými úkoly jako trpělivý a znalý přítel.",
     buildingTitle: "Co stavíme",
     buildingSubtitle: "Nástroje a zdroje navržené s rozmyslem a péčí",
-    viewRoadmap: "Zobrazit roadmapu",
+    viewRoadmap: "Zobrazit plán",
     cardAccessibility: {
       title: "Přístupnost na prvním místě",
       text: "Tara, naše AI asistentka, pomáhá starším lidem zvládat každodenní technické úkoly – napsat e-mail, vytisknout dokument nebo se zorientovat na webu – s jistotou a v klidu.",
@@ -42,9 +42,9 @@ const cs: Dictionary = {
       title: "Poháněno komunitou",
       text: "Rostoucí ekosystém projektů nad rámec naší hlavní mise.",
     },
-    ctaTitle: "Připraveni něco",
+    ctaTitle: "Připraven něco",
     ctaTitleAccent: "změnit?",
-    ctaButton: "Přidejte se k misi",
+    ctaButton: "Přidej se k misi",
     terminalMessages: [
       "Dobrý den! Jak vám dnes mohu pomoci?",
       "Moc mě těší!",
@@ -63,9 +63,10 @@ const cs: Dictionary = {
     missionLead: "Moderní technologie by neměly mít věkový limit.",
     missionBody1: " Zatímco se většina startupů zaměřuje jen na mladší generaci, ",
     missionBody2:
-      " založili dva čeští studenti s cílem, aby technologická revoluce zahrnovala opravdu každého. Věnujeme se tomu, aby pokročilá AI a další technologie byly intuitivní a přístupné bez ohledu na vaše digitální zázemí. Na naši cílovou skupinu se často zapomíná, ale věříme, že si zaslouží nástroje, které jsou jednoduché, ohleduplné a skutečně užitečné – proto stavíme ",
+      " založili dva čeští studenti s cílem, aby technologická revoluce zahrnovala opravdu každého. ",
+    missionBody3: "Věnujeme se tomu, aby pokročilá AI a další technologie byly intuitivní a přístupné bez ohledu na vaše digitální zázemí. Na naši cílovou skupinu se často zapomíná, ale věříme, že si zaslouží nástroje, které jsou jednoduché, ohleduplné a skutečně užitečné – proto stavíme ",
     missionTara: "Taru",
-    missionBody3: ", AI asistentku navrženou pro seniory, kterým moderní technologie dělají potíže.",
+    missionBody4: ", AI asistentku navrženou pro seniory, kterým moderní technologie dělají potíže.",
     contactTitle: "Ozvěte se nám",
     contactText: "Máte otázky, nápady, nebo nás chcete jen pozdravit? Rádi se s vámi spojíme.",
     followTitle: "Sledujte naši cestu",

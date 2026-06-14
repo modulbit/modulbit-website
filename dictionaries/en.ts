@@ -61,9 +61,10 @@ const en = {
     missionLead: "Modern technologies shouldn’t have an age limit.",
     missionBody1: " While most startups focus solely on the younger generation, ",
     missionBody2:
-      " was founded by two Czech students to ensure the technical revolution includes everyone. We are dedicated to making advanced AI and other technologies intuitive and accessible, regardless of your digital background. Our target group is often overlooked, but we believe they deserve tools that are simple, respectful, and actually helpful – which is why we're building ",
+      " was founded by two Czech students to ensure the technical revolution includes everyone. ",
+    missionBody3: "We are dedicated to making advanced AI and other technologies intuitive and accessible, regardless of your digital background. Our target group is often overlooked, but we believe they deserve tools that are simple, respectful, and actually helpful – which is why we're building ",
     missionTara: "Tara",
-    missionBody3: ", an AI assistant designed for elderly users who struggle with modern technology.",
+    missionBody4: ", an AI assistant designed for elderly users who struggle with modern technology.",
     contactTitle: "Get in touch",
     contactText: "Have questions, suggestions, or just want to say hi? We'd love to hear from you.",
     followTitle: "Follow our journey",

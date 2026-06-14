@@ -34,7 +34,7 @@ export default async function AboutUs({
           <div className="p-8 md:p-12 rounded-3xl bg-white/5 border border-white/10 relative overflow-hidden">
             <div className="relative z-10 text-center">
               <p className="text-xl md:text-2xl font-inter leading-relaxed text-gray-200">
-                <span className="text-accent font-bold">{t.missionLead}</span>{t.missionBody1}<span className="text-accent font-bold">modulBit</span>{t.missionBody2}<span className="text-accent font-bold">{t.missionTara}</span>{t.missionBody3}
+                <span className="text-accent font-bold">{t.missionLead}</span>{t.missionBody1}<span className="text-accent font-bold">modulBit</span>{t.missionBody2}<br />{t.missionBody3}<span className="text-accent font-bold">{t.missionTara}</span>{t.missionBody4}
               </p>
             </div>
           </div>
